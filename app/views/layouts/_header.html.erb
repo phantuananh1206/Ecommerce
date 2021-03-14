@@ -1,0 +1,40 @@
+<div class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <%= link_to t("hnanaut"), root_path, id: "logo" %>
+    <div class="collapse navbar-collapse navHeaderCollapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+          <%= link_to root_path do %>
+            <span class="glyphicon glyphicon-home"></span> <%= t("header.home") %>
+          <% end %>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= t("header.category") %><b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to t("header.laptop"), "#" %></li>
+            <li><%= link_to t("header.phone"), "#" %></li>
+          </ul>
+        </li>
+        <li><%= link_to t("header.contact"), "#" %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= t("header.language") %><b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to t("header.english"), locale: :en %></li>
+            <li><%= link_to t("header.vietnamese"), locale: :vi %></li>
+          </ul>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+            <span class="glyphicon glyphicon-shopping-cart"></span> <%= t("header.cart") %>
+          <% end %>
+        </li>
+        <li><%= link_to t("header.login"), "#" %></li>
+        <li><%= link_to t("header.register"), "#" %></li>
+      </ul>
+    </div>
+  </div>
+</div>

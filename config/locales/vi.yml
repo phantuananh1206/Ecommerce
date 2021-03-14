@@ -1,2 +1,67 @@
 vi:
-  hello: 'Xin chào'
+  hnanaut: 'HNANAUT'
+  header:
+    home: 'Trang chủ'
+    category: 'Danh mục'
+    contact: 'Liên lạc'
+    language: 'Ngôn ngữ'
+    english: 'Tiếng Anh'
+    vietnamese: 'Tiếng Việt'
+    cart: 'Giỏ hàng'
+    login: 'Đăng nhập'
+    register: 'Đăng ký'
+    laptop: 'Laptop'
+    phone: 'Điên thoại'
+  footer:
+    content: '@2021 Copy right HNANAUT'
+  product:
+    name: 'Apple'
+    price: '$1500'
+    subtotal: '$1500'
+    star: '★★★★★'
+    add_to_cart: 'Thêm vào giỏ hàng'
+  category:
+    name: 'Laptop'
+  rating:
+    point: 'Điểm'
+    index: 'Xem tất cả đánh giá'
+  product_detail:
+    price: 'Giá: '
+    stock: 'Trong kho: '
+    products: 'sản phẩm'
+    quantity: 'Số lượng: '
+  order:
+    submit: 'Gửi'
+    order_title: 'Thông tin đơn đặt hàng của bạn'
+    total_price_products: 'Tổng tiền của sản phẩm'
+    information: 'Thông tin người nhận hàng'
+    checkout: 'Hoàn thành thanh toán'
+    infor_ship:
+      name: 'Tên'
+      email: 'Email'
+      address: 'Địa chỉ'
+      phone_number: 'Số điện thoại'
+      delivery_time: 'Ngày giao hàng'
+  voucher:
+    title: 'Khuyến mãi'
+    apply_voucher: 'Áp dụng khuyến mãi'
+    cancel_voucher: 'Hủy khuyến mãi'
+    discount: 'Giảm giá'
+  cart:
+    name: 'Tên'
+    quantity: 'Số lượng'
+    subtotal: 'Tổng tiền'
+    clear_cart: 'Xóa giỏ hàng'
+    back_to_shopping: 'Tiếp tục mua sắm'
+    update_cart: 'Cập nhật giỏ hàng'
+    checkout: 'Thanh toán'
+  admin:
+    title: 'ADMIN'
+    dashboard:
+      title: 'Bảng điều khiển'
+      categories: 'Danh mục'
+      products: 'Sản phẩm'
+      orders: 'Đơn đặt hàng'
+      users: 'Người dùng'
+      brands: 'Nhãn hiệu'
+      stores: 'Cửa hàng'

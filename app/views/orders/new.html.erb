@@ -1,0 +1,87 @@
+<div class="form-checkout">
+  <h2 class="form-checkout text-center"><%= t 'order.order_title' %></h2>
+  <div class="row-info">
+    <div class="col-50">
+      <div class="containerr">
+        <%= render "infor" %>
+      </div>
+    </div>
+    <div class="col-50">
+      <div class="containerr">
+        <table id="orders" class="table table-hover">
+          <thead class="font-size" >
+            <tr>
+              <th><%= t "carts.product_name" %></th>
+              <th class="text-center"><%= t 'carts.quantity' %></th>
+              <th class="text-center"><%= t 'carts.price' %></th>
+              <th class="text-center"><%= t 'carts.subtotal' %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <h3 class="text-center" style="color: red">
+              <tr class="font-size" >
+                <div class="media">
+                  <td class="col-md-3">
+                    <div class="media-body">
+                      <p class="">
+                        <%= link_to t('product.name') %>
+                      </p>
+                    </div>
+                  </td>
+                </div>
+
+                <td class="col-md-3 text-center">
+                <strong>1</strong>
+                </td>
+
+                <td class="col-md-3 text-center">
+                  <strong><%= t('product.price') %></strong>
+                </td>
+
+              <td class="col-md-3 text-center">
+                  <strong>
+                    <%= t('product.subtotal') %>
+                  </strong>
+                </td>
+              </tr>
+            </h3>
+          </tbody>
+        </table>
+        <hr>
+        <div class="voucher"><%= t "voucher.title" %>
+          <%= text_field :name, class: "form-control" %>
+          <%= button_tag(type: "submit", data: {confirm: t('voucher.apply_vou')}, class: "btn btn-primary btn-sm") do %>
+            <%= t 'voucher.apply_voucher' %>
+          <% end %>
+        </div>
+          <%= button_tag(type: "submit", data: {confirm: t('voucher.cancel_vou')}, class: "btn btn-primary btn-sm cancel_voucher") do %>
+            <%= t 'voucher.cancel_voucher' %>
+          <% end %>
+        <hr>
+        <div><%= t "order.total_price_products" %>
+          <span class="price" style="color:black">
+            <%= t('product.price') %>
+          </span>
+        </div>
+        <br>
+        <div><%= t "voucher.discount" %>
+          <span class="price" style="color:black">
+            <%= t('product.price') %>
+          </span>
+        </div>
+        <hr>
+        <div class= "total">
+          <h5 id="total_price">
+            <div>
+              <h5><%= t 'orders.total_od' %>
+              <span class="price" style="color:black">
+                <%= t('product.price') %>
+              </span>
+              </h5>
+            </div>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
