@@ -8,7 +8,6 @@ $white_color: #fff;
 $border-color: #e1e6ef;
 $text-color: #151b1e;
 
-
 #logo_admin {
   float: left;
   margin-right: 10px;
@@ -23,7 +22,6 @@ $text-color: #151b1e;
 h1.page-header {
   margin-top: -5px;
 }
-
 
 #wrapper {
   padding-left: 0;
@@ -72,7 +70,6 @@ h1.page-header {
 }
 
 /* Sidebar Styles */
-
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -119,29 +116,29 @@ h1.page-header {
 
 @media(min-width:768px) {
   #wrapper {
-      padding-left: 250px;
+    padding-left: 250px;
   }
 
   #wrapper.toggled {
-      padding-left: 0;
+    padding-left: 0;
   }
 
   #sidebar-wrapper {
-      width: 250px;
+    width: 250px;
   }
 
   #wrapper.toggled #sidebar-wrapper {
-      width: 0;
+    width: 0;
   }
 
   #page-content-wrapper {
-      padding: 20px;
-      position: relative;
+    padding: 20px;
+    position: relative;
   }
 
   #wrapper.toggled #page-content-wrapper {
-      position: relative;
-      margin-right: 0;
+    position: relative;
+    margin-right: 0;
   }
 }
 
@@ -168,6 +165,7 @@ h1.page-header {
   display: inline-block;
   margin: 0;
 }
+
 p {
   font-size: 16px;
   line-height: 1.4em;

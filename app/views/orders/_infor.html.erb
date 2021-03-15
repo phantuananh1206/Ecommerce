@@ -1,21 +1,21 @@
 <div class="row">
   <div class="col-50">
-    <%= label :title, t('order.information'), class: "title-order" %>
+    <%= label :title, t('order.information'), class: 'title-order' %>
     <hr>
     <%= label :name, t('order.infor_ship.name') %>
-    <%= text_field :name, class: "form-control" %>
-    <%= label :email, t('order.infor_ship.email'), class: "info-add" %>
-    <%= email_field :email, class: "form-control"  %>
-    <%= label :address, t('order.infor_ship.address'), class: "info-add" %>
-    <%= text_field :address, class: "form-control" %>
-    <%= label :phone_number, t('order.infor_ship.phone_number'), class: "info-add" %>
-    <%= telephone_field :phone_number, class: "form-control" %>
+    <%= text_field :name, class: 'form-control' %>
+    <%= label :email, t('order.infor_ship.email'), class: 'info-add' %>
+    <%= email_field :email, class: 'form-control'  %>
+    <%= label :address, t('order.infor_ship.address'), class: 'info-add' %>
+    <%= text_field :address, class: 'form-control' %>
+    <%= label :phone_number, t('order.infor_ship.phone_number'), class: 'info-add' %>
+    <%= telephone_field :phone_number, class: 'form-control' %>
     <br>
     <div class="time-delivey">
-      <%= label :delivery_time, t('order.infor_ship.delivery_time'), class:"delivery" %>
+      <%= label :delivery_time, t('order.infor_ship.delivery_time'), class:'delivery' %>
       <%= date_field(:delivery_time, {min: Date.today}) %>
     </div>
     <br>
-    <%= button_tag t('order.checkout'), class: "btn btn-success btn-xs glyphicon glyphicon-ok" %>
+    <%= button_tag t('order.checkout'), class: 'btn btn-success btn-xs glyphicon glyphicon-ok' %>
   </div>
 </div>

@@ -6,16 +6,24 @@
           <th><%= t('cart.name') %></th>
           <th class="text-center"><%= t('cart.quantity') %></th>
           <th class="text-center"><%= t('cart.subtotal') %></th>
-          <th class="text-center"><%= link_to t('cart.clear_cart'), class: "btn btn-sm btn-outline-danger" %></th>
+          <th class="text-center">
+            <%= link_to t('cart.clear_cart'), class: 'btn btn-sm btn-outline-danger' %>
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>
             <div class="product-item">
-              <a class="product-thumb" href="#"><img src="https://via.placeholder.com/220x180/FF0000/000000" alt="Product"></a>
+              <%= link_to products_path do %>
+                <%= image_tag('macbook_pro.jpg', alt: :food, class: 'pic-1' ) %>
+              <% end %>
               <div class="product-info">
-                <h4 class="product-title"><%= link_to t('product.name') %></h4><span><em><%= t('Size:') %></em> <%= t('10.5') %></span><span><em><%= t('Color:') %></em><%= t('Dark Blue') %></span>
+                <h4 class="product-title">
+                  <%= link_to t('product.name') %>
+                </h4>
+                <span><em><%= t('Size:') %></em> <%= t('10.5') %></span>
+                <span><em><%= t('Color:') %></em><%= t('Dark Blue') %></span>
               </div>
             </div>
           </td>
@@ -31,16 +39,33 @@
             </div>
           </td>
           <td class="text-center text-lg text-medium"><%= t('$43.90') %></td>
-          <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a></td>
+          <td class="text-center">
+            <%= link_to carts_path do %>
+              <i class='fa fa-trash'></i>
+            <% end %>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
   <div class="shopping-cart-footer">
-    <div class="column text-lg"><%= t('Subtotal:') %><span class="text-medium"><%= t('$289.68') %></span></div>
+    <div class="column text-lg"><%= t('Subtotal:') %>
+      <span class="text-medium"><%= t('$289.68') %></span>
+    </div>
   </div>
   <div class="shopping-cart-footer">
-    <div class="column"><a class="btn btn-secondary" href="#"><i class="icon-arrow-left"></i>&nbsp;<%= t('cart.back_to_shopping')%></a></div>
-    <div class="column"><a class="btn btn-primary" href="#" data-toast="" data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart" data-toast-message="is updated successfully!"><%= t('cart.update_cart') %></a><a class="btn btn-success" href="#"><%= t('checkout') %></a></div>
+    <div class="column">
+      <%= link_to root_path, class:'btn btn-primary' do %>
+        <i class='icon-arrow-left'></i>&nbsp;<%= t('cart.back_to_shopping')%>
+      <% end %>
+    </div>
+    <div class="column">
+      <%= link_to carts_path, class: 'btn btn-primary' do %>
+        <%= t('cart.update_cart') %>
+      <% end %>
+      <%= link_to orders_path, class: 'btn btn-success' do %>
+        <%= t('checkout') %>
+      <% end %>
+    </div>
   </div>
 </div>
