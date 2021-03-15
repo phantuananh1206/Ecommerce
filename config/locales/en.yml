@@ -16,15 +16,20 @@ en:
     content: '@2021 Copy right HNANAUT'
   product:
     name: 'Apple'
+    quantity: '1'
     price: '$1500'
     subtotal: '$1500'
     star: '★★★★★'
     add_to_cart: 'ADD TO CART'
+    brand: 'Apple'
   category:
     name: 'Laptop'
   rating:
     point: 'Point'
     index: 'See all ratings'
+    min: '0'
+    max: '5'
+    sign: '/'
   product_detail:
     price: 'Price: '
     stock: 'In stock: '
@@ -55,6 +60,10 @@ en:
     back_to_shopping: 'Back to Shopping'
     update_cart: 'Update Cart'
     checkout: 'Checkout'
+    brand: 'Brand: '
+    stock: 'In stock: '
+    price: 'Price'
+    total: 'Total: '
   admin:
     title: 'ADMIN'
     dashboard:

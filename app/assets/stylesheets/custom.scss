@@ -96,8 +96,8 @@ img {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 996px) {
@@ -594,6 +594,7 @@ label {
 .info-add {
   margin-top: 16px;
 }
+
 .icon-container {
   margin-bottom: 20px;
   padding: 7px 0;

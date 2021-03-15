@@ -16,15 +16,20 @@ vi:
     content: '@2021 Copy right HNANAUT'
   product:
     name: 'Apple'
+    quantity: '1'
     price: '$1500'
     subtotal: '$1500'
     star: '★★★★★'
     add_to_cart: 'Thêm vào giỏ hàng'
+    brand: 'Apple'
   category:
     name: 'Laptop'
   rating:
     point: 'Điểm'
     index: 'Xem tất cả đánh giá'
+    min: '0'
+    max: '5'
+    sign: '/'
   product_detail:
     price: 'Giá: '
     stock: 'Trong kho: '
@@ -55,6 +60,10 @@ vi:
     back_to_shopping: 'Tiếp tục mua sắm'
     update_cart: 'Cập nhật giỏ hàng'
     checkout: 'Thanh toán'
+    brand: 'Nhãn hiệu: '
+    stock: 'Trong kho: '
+    price: 'Giá'
+    total: 'Tổng tiền: '
   admin:
     title: 'ADMIN'
     dashboard:

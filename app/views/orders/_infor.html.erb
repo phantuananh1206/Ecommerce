@@ -13,7 +13,7 @@
     <br>
     <div class="time-delivey">
       <%= label :delivery_time, t('order.infor_ship.delivery_time'), class:'delivery' %>
-      <%= date_field(:delivery_time, {min: Date.today}) %>
+      <%= date_field(:delivery_time, { min: Date.today }) %>
     </div>
     <br>
     <%= button_tag t('order.checkout'), class: 'btn btn-success btn-xs glyphicon glyphicon-ok' %>
