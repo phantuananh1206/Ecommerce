@@ -16,7 +16,10 @@ gem 'rails-i18n'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
-
+gem 'active_storage_validations', '0.8.2'
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+gem 'image_processing', '1.9.3'
+gem 'mini_magick', '4.9.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
