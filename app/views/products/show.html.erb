@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="container-fliud">
+    <div class="wrapper row">
+      <div class="preview col-md-6">
+        <div class="preview-pic tab-content">
+          <div class="tab-pane active" id="pic-1">
+            <%= image_tag('macbook_pro.jpg', alt: :food, class: 'pic-1') %>
+          </div>
+        </div>
+      </div>
+      <div class="details col-md-6">
+        <h1 class="product-title"></h1>
+        <div class="rating">
+          <div class="star-rating mb-2">
+            <div class="star-rating-front"><%= t('product.star') %></div>
+            <div class="star-rating-back"><%= t('product.star') %></div>
+            <small>(<%= t('rating.point') %>)</small>
+          </div>
+        </div>
+        <h5 class="product-description">
+        </h5>
+        <h4 class="price">
+          <%= t('product_detail.price') %>
+          <span></span>
+        </h4>
+        <h5 class="quanlity"><%= t('product_detail.stock')%>
+          <%= t('product_detail.products')%>
+        </h5>
+        <h5>
+          <%= t('product_detail.quantity')%>
+        </h5>
+        <div class="action">
+          <%= button_tag(type: 'submit', class: 'add-to-cart-detail btn-default') do %>
+            <i class='fa fa-shopping-cart'> <%= t('product.add_to_cart') %></i>
+          <% end %>
+          <div class="rating-box mt-3">
+            <div class="main-rating">
+              <div class="ratings mb-3">
+                <span class="fa fa-star-o" id="star"></span>
+                <span class="fa fa-star-o" id="star"></span>
+                <span class="fa fa-star-o" id="star"></span>
+                <span class="fa fa-star-o" id="star"></span>
+                <span class="fa fa-star-o" id="star"></span>
+              </div>
+              <div class="ml-3 rating-value-display">
+                <span id="rating-value-display"><%= t('rating.min') %></span>
+                <%= t('rating.sign') %><%= t('rating.max') %>
+              </div>
+            </div>
+            <%= text_field :content, class: 'textarea' %>
+            <%= button_tag t('order.submit'), class: 'btn btn-success btn-xs glyphicon glyphicon-ok' %>
+            <%= button_tag t('rating.index'), class: 'btn btn-info btn-xs glyphicon' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
