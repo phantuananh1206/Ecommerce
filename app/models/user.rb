@@ -1,9 +1,7 @@
 class User < ApplicationRecord
   has_one_attached :image
-  with_options dependent: :destroy do |assoc|
-    assoc.has_many :orders
-    assoc.has_many :ratings
-  end
+  has_many :orders, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 
   enum role: { admin: 0, member: 1, block: 2 }
 

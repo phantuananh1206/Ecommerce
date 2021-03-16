@@ -1,4 +1,5 @@
-User.create!(name: 'TuanAnh',
+User.create!(
+  name: 'TuanAnh',
   email: 'phantuananhltt@gmail.com',
   address: '58 Dung Si Thanh Khe',
   password: 'Test123@',
@@ -7,7 +8,7 @@ User.create!(name: 'TuanAnh',
 )
 
 #User
-30.times do |n|
+30.times do
   User.create!(
     name: Faker::Name.name,
     email: Faker::Internet.free_email,
@@ -49,10 +50,10 @@ end
 end
 
 # Products
-subCategories = Category.where.not(parent_id: nil)
-20.times do |n|
+subcategories = Category.subcategories
+20.times do
   Product.create!(
-    category_id: subCategories.pluck(:id).sample,
+    category_id: subcategories.pluck(:id).sample,
     brand_id: Brand.pluck(:id).sample,
     name: Faker::Commerce.product_name,
     description: Faker::Lorem.sentence,
@@ -73,7 +74,7 @@ end
 end
 
 # Orders
-12.times do |n|
+12.times do
   Order.create!(
     user_id: User.pluck(:id).sample,
     name: Faker::Name.name,
@@ -88,7 +89,7 @@ end
 # Orders Details
 orders = Order.all
 orders.each do |order|
-  20.times do |n|
+  20.times do
     OrderDetail.create!(
       order_id: order.id,
       product_id: Product.pluck(:id).sample,
@@ -99,7 +100,7 @@ orders.each do |order|
 end
 
 # Ratings
-10.times do |n|
+10.times do
   Rating.create!(
     user_id: User.pluck(:id).sample,
     product_id: Product.pluck(:id).sample,

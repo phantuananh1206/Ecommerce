@@ -1,5 +1,5 @@
 class Voucher < ApplicationRecord
-  has_many :orders, dependent: :destroy
+  has_many :orders
 
   with_options presence: true do
     validates :code, length: { maximum: Settings.validation.code_max }, uniqueness: true

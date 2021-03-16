@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   has_many :products, through: :order_details
 
   enum status: { waiting: 0, confirmed: 1, accepted: 2, refused: 3,
-                canceled: 4, shipping: 5, delivered: 6 }
+                 canceled: 4, shipping: 5, delivered: 6 }
 
   with_options presence: true do
     validates :name, length: { maximum: Settings.validation.name_max }
