@@ -10,7 +10,7 @@ User.create!(name: 'TuanAnh',
 30.times do |n|
   User.create!(
     name: Faker::Name.name,
-    email: "user#{ n + 1 }@gmail.com",
+    email: Faker::Internet.free_email,
     address: Faker::Address.full_address,
     password: 'Test123@',
     phone_number: Faker::Number.leading_zero_number(digits: 10)
@@ -49,8 +49,7 @@ end
 end
 
 # Products
-categories = Category.where(parent_id: nil)
-subCategories = Category.all - categories
+subCategories = Category.where.not(parent_id: nil)
 20.times do |n|
   Product.create!(
     category_id: subCategories.pluck(:id).sample,

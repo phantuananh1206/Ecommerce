@@ -7,6 +7,7 @@ validation:
   origin_max: 50
   code_max: 10
   phone_min: 10
+  min_point: 0
+  max_point: 6
   number:
     zero: 0
-    six: 6
