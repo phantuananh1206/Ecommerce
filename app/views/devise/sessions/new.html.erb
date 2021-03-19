@@ -1,0 +1,21 @@
+<% provide(:title, t('header.login')) %>
+<h1 class="text-center"><%= t("user.login") %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.label :email, t('user.email')  %>
+      <%= f.email_field :email, autofocus: true, autocomplete: 'email' , placeholder: :email, class: 'form-control' %>
+      <%= f.label :password, t('user.pass') %>
+      <%= f.password_field :password, autocomplete: 'current-password', placeholder: :password, class: 'form-control' %>
+      <% if devise_mapping.rememberable? %>
+        <%= f.label :remember_me, class: 'checkbox inline' do %>
+          <%= f.check_box :remember_me %>
+          <span><%= t 'user.remember' %></span>
+        <% end %>
+      <% end %>
+      <%= f.submit t('user.log_in'), class: 'btn btn-primary' %>
+    <% end %>
+    <hr>
+    <%= render 'devise/shared/links' %>
+  </div>
+</div>

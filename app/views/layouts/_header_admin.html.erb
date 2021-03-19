@@ -23,11 +23,9 @@
           </a>
           <ul class="dropdown-menu">
             <li><%= link_to t('user.profile') %></li>
-            <li><%= link_to t('user.settings') %></li>
+            <li><%= link_to t('user.edit_profile'), edit_user_registration_path %></li>
             <li class="divider"></li>
-            <li>
-              <%= link_to t('user.logout'), method: :delete %>
-            </li>
+            <li><%= link_to t('user.logout'), logout_path, method: :delete %></li>
           </ul>
         </li>
       </ul>

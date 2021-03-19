@@ -1,0 +1,19 @@
+<% provide :title, t('title.forgot_password') %>
+<div class="container form-devise">
+  <div class="row">
+    <div class="text-center">
+      <%= image_tag 'avatar.png', width: '180', class: 'img-thumbnail logo img-circle' %>
+      <div>
+        <h2><%= t 'user.forgot_password' %></h2>
+      </div>
+      <div class="panel-body">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'  %>
+          <%= f.submit t('user.submit'), class: 'btn btn-sm btn-primary btn-block' %>
+        <% end %>
+        <%= render 'devise/shared/links' %>
+      </div>
+    </div>
+  </div>
+</div>

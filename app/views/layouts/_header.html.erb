@@ -32,8 +32,25 @@
             <span class="glyphicon glyphicon-shopping-cart"></span><%= t('header.cart') %>
           <% end %>
         </li>
-        <li><%= link_to t('header.login'), '#' %></li>
-        <li><%= link_to t('header.register'), '#' %></li>
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= t('header.account') %><b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <% if current_user.admin? %>
+                <li><%= link_to t('header.page_admin'), admin_root_path, class: 'dropdown-item' %></li>
+              <% end %>
+              <li><%= link_to t('header.profile') %></li>
+              <li><%= link_to t('header.edit_profile'), edit_user_registration_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to t('header.logout'), logout_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to t('header.login'), login_path %></li>
+          <li><%= link_to t('header.register'), signup_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>

@@ -1,5 +1,9 @@
 class User < ApplicationRecord
-  has_one_attached :image
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :confirmable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+
+  has_many_attached :images
   has_many :orders, dependent: :destroy
   has_many :ratings, dependent: :destroy
 
@@ -9,13 +13,29 @@ class User < ApplicationRecord
     validates :name, length: { maximum: Settings.validation.name_max }
     validates :email, length: { maximum: Settings.validation.email_max },
                       format: { with: Constant::VALID_EMAIL_REGEX }, uniqueness: true
-    validates :password, length: { minimum: Settings.validation.password_min }
   end
   validates :phone_number, format: { with: Constant::VALID_PHONE_REGEX },
                            length: { minimum: Settings.validation.phone_min },
                            uniqueness: true, allow_nil: true
 
   before_save :downcase_email
+
+  def self.from_omniauth(auth)
+    result = User.where(email: auth.info.email).first
+    if result
+      return result
+    else
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+        user.name = auth.info.name
+        user.image = auth.info.image
+        user.uid = auth.uid
+        user.provider = auth.provider
+        user.skip_confirmation!
+      end
+    end
+  end
 
   private
 
