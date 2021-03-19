@@ -21,22 +21,20 @@ class User < ApplicationRecord
   before_save :downcase_email
 
   def self.from_omniauth(auth)
-    @user = find_by(email: auth.info.email)
-    if @user
-      @user.assign_attributes(provider: auth.provider, uid: auth.uid,
-                              image: auth.info.image)
-      return @user
-    else
-      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-        user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
-        user.name = auth.info.name
-        user.image = auth.info.image
-        user.uid = auth.uid
-        user.provider = auth.provider
-        user.skip_confirmation!
-      end
+    user_with_provider = find_by(provider: auth.provider, uid: auth.uid)
+    return user_with_provider if user_with_provider
+
+    user = find_or_initialize_by(email: auth.info.email)
+    if user.new_record?
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name
+      user.image = auth.info.image
+      user.skip_confirmation!
     end
+    user.uid = auth.uid
+    user.provider = auth.provider
+    user.save
+    user
   end
 
   private
