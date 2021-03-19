@@ -9,7 +9,8 @@
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
       <%= f.label :phone_number %>
-      <%= f.telephone_field :phone_number, autofocus: true, autocomplete: 'phone-number', class: 'form-control' %>
+      <%= f.telephone_field :phone_number, autofocus: true, autocomplete: 'phone-number',
+                                           class: 'form-control' %>
       <%= f.label :password %>
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>

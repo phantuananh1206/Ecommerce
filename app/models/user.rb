@@ -21,9 +21,11 @@ class User < ApplicationRecord
   before_save :downcase_email
 
   def self.from_omniauth(auth)
-    result = User.where(email: auth.info.email).first
-    if result
-      return result
+    @user = find_by(email: auth.info.email)
+    if @user
+      @user.assign_attributes(provider: auth.provider, uid: auth.uid,
+                              image: auth.info.image)
+      return @user
     else
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.email = auth.info.email

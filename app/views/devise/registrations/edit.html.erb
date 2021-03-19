@@ -3,7 +3,8 @@
   <div class="row">
     <div class="panel-body">
       <h2 class="text-center"><%= t('user.edit') %> <%= resource_name.to_s.humanize %></h2>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
+                                                html: { method: :put }) do |f| %>
         <%= render 'devise/shared/error_messages', resource: resource %>
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
