@@ -43,3 +43,4 @@ config/environments/*.local.yml
 credentials.yml.enc
 database.yml
 test/
+.env

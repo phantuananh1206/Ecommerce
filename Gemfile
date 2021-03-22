@@ -20,6 +20,13 @@ gem 'active_storage_validations', '0.8.2'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'image_processing', '1.9.3'
 gem 'mini_magick', '4.9.5'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
+gem 'activerecord-session_store'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

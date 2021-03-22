@@ -3,7 +3,6 @@ mailer:
 validation:
   name_max: 50
   email_max: 255
-  password_min: 6
   origin_max: 50
   code_max: 10
   phone_min: 10

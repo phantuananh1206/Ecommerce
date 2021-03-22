@@ -715,3 +715,97 @@ span.price {
   justify-content: flex-end;
   margin: 10px;
 }
+
+/* Form Sign up */
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.form-login, .form-signup {
+  margin-left: 350px;
+  max-width: 350px;
+}
+
+@media only screen and (max-width:990px) {
+  .form-login, .form-signup {
+    margin-left: 200px;
+  }
+}
+
+.user-login input, textarea, select, .uneditable-input, .user-signup input, textarea, select {
+  border: 1px solid $border-color;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+.user-login input, .user-signup input {
+  height: auto !important;
+}
+
+.checkbox {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  span {
+    font-weight: normal;
+    margin-left: 20px;
+  }
+}
+
+#session_remember_me {
+  margin-left: 0;
+  width: auto;
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+.icon {
+  padding-right: 15px;
+}
+
+/* Form Login */
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+/* Form devise */
+.form-devise {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-reset {
+  margin-top: 20px;
+}
