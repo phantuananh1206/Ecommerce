@@ -14,4 +14,6 @@ class Product < ApplicationRecord
   end
 
   scope :sort_name_alphabetically, -> { order(name: :asc) }
+
+  delegate :name, to: :category, prefix: true
 end

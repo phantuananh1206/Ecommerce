@@ -3,7 +3,8 @@
     <table class="table">
       <thead>
         <tr>
-          <th><%= t('cart.name') %></th>
+          <th class="text-center"><%= t('cart.image') %></th>
+          <th class="text-center"><%= t('cart.name') %></th>
           <th class="text-center"><%= t('cart.quantity') %></th>
           <th class="text-center"><%= t('cart.price') %></th>
           <th class="text-center"><%= t('cart.subtotal') %></th>
@@ -13,40 +14,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <div class="product-item">
-              <%= link_to products_path do %>
-                <%= image_tag('macbook_pro.jpg', alt: :food, class: 'pic-1' ) %>
-              <% end %>
-              <div class="product-info">
-                <h4 class="product-title">
-                  <%= link_to t('product.name') %>
-                </h4>
-                <span><em><%= t('cart.brand') %></em> <%= t('product.brand') %></span>
-                <span><em><%= t('cart.stock') %></em><%= t('product.quantity') %></span>
-              </div>
-            </div>
-          </td>
-          <td class="text-center">
-            <div class="count-input">
-              <%= number_field_tag(:quantity, class: 'form-control mb-5 input-sm') %>
-            </div>
-          </td>
-          <td class="text-center text-lg text-medium"><%= t('product.price') %></td>
-          <td class="text-center text-lg text-medium"><%= t('product.subtotal') %></td>
-          <td class="text-center">
-            <%= link_to carts_path do %>
-              <i class='fa fa-trash'></i>
-            <% end %>
-          </td>
-        </tr>
+        <%= render(partial: 'carts/cart_row', collection: @order_details, as: 'od_details') || t('cart.cart_is_empty') %>
       </tbody>
     </table>
   </div>
   <div class="shopping-cart-footer">
     <div class="column text-lg"><%= t('cart.total') %>
-      <span class="text-medium"><%= t('product.subtotal') %></span>
+      <span><strong><%= number_to_currency(@cart[:total]) %></strong></span>
     </div>
   </div>
   <div class="shopping-cart-footer">
@@ -57,7 +31,7 @@
     </div>
     <div class="column">
       <%= link_to t('cart.update_cart'), carts_path, class: 'btn btn-primary' %>
-      <%= link_to t('checkout'), orders_path, class: 'btn btn-success' %>
+      <%= link_to t('cart.checkout'), orders_path, class: 'btn btn-success' %>
     </div>
   </div>
 </div>

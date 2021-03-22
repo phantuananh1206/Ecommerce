@@ -28,6 +28,7 @@ en:
     add_to_cart: 'ADD TO CART'
     brand: 'Apple'
     product_not_found: 'Product not found'
+    invalid_quantity: 'Invalid quantity'
   category:
     name: 'Laptop'
   rating:
@@ -66,9 +67,11 @@ en:
     update_cart: 'Update Cart'
     checkout: 'Checkout'
     brand: 'Brand: '
-    stock: 'In stock: '
+    in_stock: 'In stock: %{num} products'
     price: 'Price'
     total: 'Total: '
+    image: 'Image'
+    cart_is_empty: 'The cart is empty'
   admin:
     title: 'ADMIN'
     dashboard:

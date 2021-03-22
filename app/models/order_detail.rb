@@ -6,4 +6,6 @@ class OrderDetail < ApplicationRecord
     validates :quantity, numericality: { only_integer: true, greater_than: Settings.validation.number.zero }
     validates :price, numericality: { greater_than: Settings.validation.number.zero }
   end
+
+  delegate :quantity, :name, to: :product, prefix: true
 end
