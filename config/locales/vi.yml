@@ -38,9 +38,8 @@ vi:
     sign: '/'
   product_detail:
     price: 'Giá: '
-    stock: 'Trong kho: '
-    products: 'sản phẩm'
     quantity: 'Số lượng: '
+    quantity_in_stock: 'Trong kho: %{num} sản phẩm'
   order:
     submit: 'Gửi'
     order_title: 'Thông tin đơn đặt hàng của bạn'

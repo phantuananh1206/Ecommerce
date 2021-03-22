@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   def load_product
     return if @product = Product.find_by(id: params[:id])
 
-    flash[:danger] = t 'product.product_nil'
+    flash[:danger] = t('product.product_nil')
     redirect_to root_path
   end
 end

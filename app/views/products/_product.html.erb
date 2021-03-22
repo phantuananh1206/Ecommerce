@@ -1,9 +1,7 @@
 <div class="col-md-3 col-sm-6 ">
     <div class="product-grid">
         <div class="product-image">
-          <%= link_to product do %>
-            <%= load_image_product(product) %>
-          <% end %>
+          <%= link_to load_image_product(product), product %>
         </div>
         <div class="product-content">
             <h3 class="title"><%= product.name %></h3>

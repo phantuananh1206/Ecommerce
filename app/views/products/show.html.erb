@@ -23,8 +23,8 @@
           <%= t('product_detail.price') %>
           <span><%= number_to_currency(@product.price) %></span>
         </h4>
-        <h5 class="quanlity"><%= t('product_detail.stock')%>
-          <%= @product.quantity %> <%= t('product_detail.products')%>
+        <h5 class="quanlity">
+          <%= t('product_detail.quantity_in_stock', num: @product.quantity)%>
         </h5>
         <h5>
           <%= t('product_detail.quantity')%>

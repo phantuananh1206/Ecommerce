@@ -13,5 +13,5 @@ class Product < ApplicationRecord
     validates :price, numericality: { greater_than: Settings.validation.number.zero }
   end
 
-  scope :sort_name_alphabetically, -> { order name: :asc }
+  scope :sort_name_alphabetically, -> { order(name: :asc) }
 end

@@ -38,9 +38,8 @@ en:
     sign: '/'
   product_detail:
     price: 'Price: '
-    stock: 'In stock: '
-    products: 'products'
     quantity: 'Quantity: '
+    quantity_in_stock: 'In stock: %{num} products'
   order:
     submit: 'Submit'
     order_title: 'YOUR ORDER INFORMATION'
