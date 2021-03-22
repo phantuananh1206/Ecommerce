@@ -4,7 +4,7 @@
     <%= render 'static_pages/carousel' %>
     <hr>
     <div class="row" id="products">
-      <%= render @products || t('product.product_not_found') %>
+      <%= render(@products) || t('product.product_not_found') %>
     </div>
     <div class="row" id="paginator">
       <%= paginate @products, theme: 'twitter-bootstrap-3', remote: true %>
