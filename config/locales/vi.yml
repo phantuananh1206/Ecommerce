@@ -27,6 +27,7 @@ vi:
     star: '★★★★★'
     add_to_cart: 'Thêm vào giỏ hàng'
     brand: 'Apple'
+    product_not_found: 'Không tìm thấy sản phẩm'
   category:
     name: 'Laptop'
   rating:
@@ -37,9 +38,8 @@ vi:
     sign: '/'
   product_detail:
     price: 'Giá: '
-    stock: 'Trong kho: '
-    products: 'sản phẩm'
     quantity: 'Số lượng: '
+    quantity_in_stock: 'Trong kho: %{num} sản phẩm'
   order:
     submit: 'Gửi'
     order_title: 'Thông tin đơn đặt hàng của bạn'
@@ -109,3 +109,19 @@ vi:
     change_password: 'Đổi mật khẩu'
     forgot_password: 'Quên mật khẩu'
     edit_profile: 'Chỉnh sửa hồ sơ'
+    product: 'Sản phẩm'
+  views:
+    pagination:
+      first: '« ĐẦU TIÊN'
+      last: 'CUỐI CÙNG »'
+      previous: '‹ TRƯỚC'
+      next: 'TIẾP ›'
+      truncate: '…'
+  number:
+    currency:
+      format:
+        delimiter: ','
+        format: '%n%u'
+        precision: 2
+        separator: '.'
+        unit: '$'

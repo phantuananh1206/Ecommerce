@@ -7,4 +7,8 @@ module ApplicationHelper
   def pending_reconfirmation?
     resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email
   end
+
+  def load_image_product(product)
+    image_tag(product.images.attached? ? product.images : 'macbook_pro.jpg')
+  end
 end

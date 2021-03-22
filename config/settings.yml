@@ -10,3 +10,6 @@ validation:
   max_point: 6
   number:
     zero: 0
+product:
+  min_quantity: 1
+quantity_per_page: 8

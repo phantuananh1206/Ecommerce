@@ -52,6 +52,10 @@ $lightgrey: lightgrey;
   font-size: 15px;
 }
 
+.footer-hnaut {
+  margin-bottom: 0;
+}
+
 /* Product */
 .product-grid,.product-grid .product-image{overflow:hidden}
 .product-grid{font-family:'Open Sans',sans-serif;text-align:center;position:relative;transition:all .5s ease 0s}
@@ -294,11 +298,6 @@ img {
 
 .average-score-display {
   font-size: 16px;
-}
-
-.textarea{
-  width: 250px;
-  height: 70px;
 }
 
 /* Cart */
@@ -774,15 +773,11 @@ span.price {
 }
 
 /* Form Login */
-input, textarea, select, .uneditable-input {
+.login input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
-}
-
-input {
-  height: auto !important;
 }
 
 #error_explanation {

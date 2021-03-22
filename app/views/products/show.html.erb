@@ -1,15 +1,16 @@
+<% provide(:title, t('title.product')) %>
 <div class="card">
   <div class="container-fliud">
     <div class="wrapper row">
       <div class="preview col-md-6">
         <div class="preview-pic tab-content">
           <div class="tab-pane active" id="pic-1">
-            <%= image_tag('macbook_pro.jpg', alt: :food, class: 'pic-1') %>
+            <%= load_image_product(@product) %>
           </div>
         </div>
       </div>
       <div class="details col-md-6">
-        <h1 class="product-title"></h1>
+        <h1 class="product-title"><%= @product.name %></h1>
         <div class="rating">
           <div class="star-rating mb-2">
             <div class="star-rating-front"><%= t('product.star') %></div>
@@ -17,17 +18,17 @@
             <small>(<%= t('rating.point') %>)</small>
           </div>
         </div>
-        <h5 class="product-description">
-        </h5>
+        <h5 class="product-description"><%= @product.description %></h5>
         <h4 class="price">
           <%= t('product_detail.price') %>
-          <span></span>
+          <span><%= number_to_currency(@product.price) %></span>
         </h4>
-        <h5 class="quanlity"><%= t('product_detail.stock')%>
-          <%= t('product_detail.products')%>
+        <h5 class="quanlity">
+          <%= t('product_detail.quantity_in_stock', num: @product.quantity)%>
         </h5>
         <h5>
           <%= t('product_detail.quantity')%>
+          <%= number_field_tag(:quantity, Settings.product.min_quantity, min: Settings.product.min_quantity, max: @product.quantity) %>
         </h5>
         <div class="action">
           <%= button_tag(type: 'submit', class: 'add-to-cart-detail btn-default') do %>
@@ -47,9 +48,9 @@
                 <%= t('rating.sign') %><%= t('rating.max') %>
               </div>
             </div>
-            <%= text_field :content, class: 'textarea' %>
-            <%= button_tag t('order.submit'), class: 'btn btn-success btn-xs glyphicon glyphicon-ok' %>
-            <%= button_tag t('rating.index'), class: 'btn btn-info btn-xs glyphicon' %>
+            <%= text_field :content, class: 'content' %>
+            <%= button_tag t('order.submit'), class: 'btn btn-success btn-md glyphicon glyphicon-ok' %>
+            <%= button_tag t('rating.index'), class: 'btn btn-info btn-md glyphicon' %>
           </div>
         </div>
       </div>

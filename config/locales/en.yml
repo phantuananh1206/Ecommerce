@@ -27,6 +27,7 @@ en:
     star: '★★★★★'
     add_to_cart: 'ADD TO CART'
     brand: 'Apple'
+    product_not_found: 'Product not found'
   category:
     name: 'Laptop'
   rating:
@@ -37,9 +38,8 @@ en:
     sign: '/'
   product_detail:
     price: 'Price: '
-    stock: 'In stock: '
-    products: 'products'
     quantity: 'Quantity: '
+    quantity_in_stock: 'In stock: %{num} products'
   order:
     submit: 'Submit'
     order_title: 'YOUR ORDER INFORMATION'
@@ -109,3 +109,19 @@ en:
     change_password: 'Change password'
     forgot_password: 'Forgot password'
     edit_profile: 'Edit profile'
+    product: 'Product'
+  views:
+      pagination:
+        first: '« FIRST'
+        last: 'LAST »'
+        previous: '‹ PREV'
+        next: 'NEXT ›'
+        truncate: '…'
+  number:
+    currency:
+      format:
+        delimiter: ','
+        format: '%n%u'
+        precision: 2
+        separator: '.'
+        unit: '$'
