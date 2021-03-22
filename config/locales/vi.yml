@@ -27,7 +27,7 @@ vi:
     star: '★★★★★'
     add_to_cart: 'Thêm vào giỏ hàng'
     brand: 'Apple'
-    product_nil: 'Sản phẩm không tồn tại'
+    product_not_found: 'Không tìm thấy sản phẩm'
   category:
     name: 'Laptop'
   rating:

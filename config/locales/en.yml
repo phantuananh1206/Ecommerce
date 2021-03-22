@@ -27,7 +27,7 @@ en:
     star: '★★★★★'
     add_to_cart: 'ADD TO CART'
     brand: 'Apple'
-    product_nil: 'Product does not exist'
+    product_not_found: 'Product not found'
   category:
     name: 'Laptop'
   rating:
