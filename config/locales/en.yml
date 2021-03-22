@@ -27,6 +27,7 @@ en:
     star: '★★★★★'
     add_to_cart: 'ADD TO CART'
     brand: 'Apple'
+    product_nil: 'Product does not exist'
   category:
     name: 'Laptop'
   rating:
@@ -109,3 +110,19 @@ en:
     change_password: 'Change password'
     forgot_password: 'Forgot password'
     edit_profile: 'Edit profile'
+    product: 'Product'
+  views:
+      pagination:
+        first: '« FIRST'
+        last: 'LAST »'
+        previous: '‹ PREV'
+        next: 'NEXT ›'
+        truncate: '…'
+  number:
+    currency:
+      format:
+        delimiter: ','
+        format: '%n%u'
+        precision: 2
+        separator: '.'
+        unit: '$'

@@ -92,6 +92,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.7.2)
       msgpack (~> 1.0)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
@@ -175,6 +178,18 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jwt (2.2.2)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -340,6 +355,7 @@ DEPENDENCIES
   active_storage_validations (= 0.8.2)
   activerecord-session_store
   bootsnap (>= 1.4.2)
+  bootstrap-kaminari-views
   bootstrap-sass (= 3.4.1)
   byebug
   capybara (>= 2.15)
@@ -351,6 +367,7 @@ DEPENDENCIES
   image_processing (= 1.9.3)
   jbuilder (~> 2.7)
   jquery-rails
+  kaminari
   listen (~> 3.2)
   mini_magick (= 4.9.5)
   mysql2 (>= 0.4.4)

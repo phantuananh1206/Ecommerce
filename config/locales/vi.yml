@@ -27,6 +27,7 @@ vi:
     star: '★★★★★'
     add_to_cart: 'Thêm vào giỏ hàng'
     brand: 'Apple'
+    product_nil: 'Sản phẩm không tồn tại'
   category:
     name: 'Laptop'
   rating:
@@ -109,3 +110,19 @@ vi:
     change_password: 'Đổi mật khẩu'
     forgot_password: 'Quên mật khẩu'
     edit_profile: 'Chỉnh sửa hồ sơ'
+    product: 'Sản phẩm'
+  views:
+    pagination:
+      first: '« ĐẦU TIÊN'
+      last: 'CUỐI CÙNG »'
+      previous: '‹ TRƯỚC'
+      next: 'TIẾP ›'
+      truncate: '…'
+  number:
+    currency:
+      format:
+        delimiter: ','
+        format: '%n%u'
+        precision: 2
+        separator: '.'
+        unit: '$'

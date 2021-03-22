@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   scope '(:locale)', locale: /en|vi/ do
     root 'static_pages#home'
-    get '/products', to: 'products#show'
     get '/carts', to: 'carts#index'
     get '/orders', to: 'orders#new'
 
@@ -20,5 +19,7 @@ Rails.application.routes.draw do
       post '/login', to: 'devise/sessions#create'
       delete '/logout', to: 'devise/sessions#destroy'
     end
+
+    resources :products, only: %i(show)
   end
 end
