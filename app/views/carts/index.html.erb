@@ -3,7 +3,6 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="text-center"><%= t('cart.image') %></th>
           <th class="text-center"><%= t('cart.name') %></th>
           <th class="text-center"><%= t('cart.quantity') %></th>
           <th class="text-center"><%= t('cart.price') %></th>
@@ -14,7 +13,9 @@
         </tr>
       </thead>
       <tbody>
-        <%= render(partial: 'carts/cart_row', collection: @order_details, as: 'od_details') || t('cart.cart_is_empty') %>
+        <%= render(partial: 'carts/cart_row',
+                   collection: @products_in_cart,
+                   as: 'product') || t('cart.cart_is_empty') %>
       </tbody>
     </table>
   </div>

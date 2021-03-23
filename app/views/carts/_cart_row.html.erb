@@ -1,32 +1,29 @@
 <tr>
   <td>
-    <%= link_to load_image_product(@product), @product %>
-  </td>
-  <td>
     <div class="product-item">
       <div class="product-info">
         <h4 class="product-title">
-          <%= link_to od_details.product_name, @product %>
+          <%= product[:product_name] %>
         </h4>
-        <span><em><%= od_details.product.category_name %></em></span>
-        <span><em><%= t('cart.in_stock', num: od_details.product_quantity) %></em></span>
+        <span><em><%= product[:category_name] %></em></span>
+        <span><em><%= t('cart.in_stock', num: product[:quantity_in_stock]) %></em></span>
       </div>
     </div>
   </td>
   <td class="text-center">
     <div class="card custom-quantity">
       <div class="count-input">
-        <%= number_field_tag(:quantity, od_details.quantity.to_i, min: Settings.product.min_quantity,
-                                                                  max: od_details.product_quantity,
-                                                                  class: 'form-control mb-5 input-lg') %>
+        <%= number_field_tag(:quantity, product[:quantity], min: Settings.product.min_quantity,
+                                                            max: product[:quantity_in_stock],
+                                                            class: 'form-control mb-5 input-lg') %>
       </div>
     </div>
   </td>
   <td class="text-center text-lg text-medium">
-    <%= number_to_currency(od_details.price) %>
+    <%= number_to_currency(product[:price]) %>
   </td>
   <td class="text-center text-lg text-medium">
-    <%= number_to_currency(subtotal(od_details.price, od_details.quantity)) %>
+    <%= number_to_currency(product[:subtotal]) %>
   </td>
   <td class="text-center">
     <%= link_to carts_path, class: 'btn btn-danger' do %>

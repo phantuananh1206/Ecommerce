@@ -33,9 +33,11 @@
           <%= form_tag(carts_path, method: :post, remote: true) do %>
             <%= hidden_field_tag(:product_id, @product.id) %>
             <%= hidden_field_tag(:price, @product.price) %>
-            <%= number_field_tag(:quantity, Settings.product.min_quantity, min: Settings.product.min_quantity,
-                                                                           max: @product.quantity,
-                                                                           class: 'form-control') %>
+            <%= number_field_tag(:quantity,
+                                 Settings.product.min_quantity,
+                                 min: Settings.product.min_quantity,
+                                 max: @product.quantity,
+                                 class: 'form-control') %>
             <%= button_tag(type: 'submit', class: 'add-to-cart-detail btn-default') do %>
               <i class='fa fa-shopping-cart'> <%= t('product.add_to_cart') %></i>
             <% end %>

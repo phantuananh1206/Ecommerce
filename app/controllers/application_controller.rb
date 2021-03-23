@@ -12,11 +12,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
   end
 
-  def current_cart
-    session[:cart] ||= { product: {}, count: 0, total: 0 }
-    @cart = session[:cart]
-  end
-
   private
 
   def set_locale

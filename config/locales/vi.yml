@@ -72,6 +72,7 @@ vi:
     total: 'Tổng tiền: '
     image: 'Hình ảnh'
     cart_is_empty: 'Giỏ hàng trống'
+    cart: 'Giỏ hàng(%{count})'
   admin:
     title: 'ADMIN'
     dashboard:
