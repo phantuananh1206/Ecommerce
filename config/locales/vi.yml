@@ -73,6 +73,10 @@ vi:
     image: 'Hình ảnh'
     cart_is_empty: 'Giỏ hàng trống'
     cart: 'Giỏ hàng(%{count})'
+    verify: 'Bạn có chắc chắn muốn xóa không?'
+    update_failed: 'Cập nhật thất bại'
+    delete_failed: 'Xóa thất bại'
+    clear_cart: 'Xóa giỏ hàng'
   admin:
     title: 'ADMIN'
     dashboard:

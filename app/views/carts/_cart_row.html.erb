@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <div class="product-item">
+    <div class="product-item" id="product_item_<%= product[:product_id] %>">
       <div class="product-info">
         <h4 class="product-title">
           <%= product[:product_name] %>
@@ -13,22 +13,33 @@
   <td class="text-center">
     <div class="card custom-quantity">
       <div class="count-input">
-        <%= number_field_tag(:quantity,
-                             product[:quantity],
-                             min: Settings.product.min_quantity,
-                             max: product[:quantity_in_stock],
-                             class: 'form-control mb-5 input-lg') %>
+        <%= form_tag(cart_path(product[:product_id]), method: :patch, class: 'form-cart', remote: true) do  %>
+          <%= hidden_field_tag(:product_id, product[:product_id]) %>
+          <%= number_field_tag(:quantity,
+                               product[:quantity],
+                               min: Settings.product.min_quantity,
+                               max: product[:quantity_in_stock],
+                               id: 'quantity-product',
+                               class: 'form-control mb-5 input-lg') %>
+          <%= button_tag(type: 'submit', class: 'btn btn-success btn-update') do %>
+            <i class='fa fa-pencil-square-o'></i>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </td>
   <td class="text-center text-lg text-medium">
     <%= number_to_currency(product[:price]) %>
   </td>
-  <td class="text-center text-lg text-medium">
+  <td class="text-center text-lg text-medium" id="sub_total">
     <%= number_to_currency(product[:subtotal]) %>
   </td>
   <td class="text-center">
-    <%= link_to carts_path, class: 'btn btn-danger' do %>
+    <%= link_to cart_path(id: product[:product_id]),
+                        { data: { confirm: t('cart.verify') },
+                          class: 'btn btn-danger destroy-product',
+                          method: :delete,
+                          remote: true } do %>
       <i class='fa fa-trash'></i>
     <% end %>
   </td>

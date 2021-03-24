@@ -73,6 +73,10 @@ en:
     image: 'Image'
     cart_is_empty: 'The cart is empty'
     cart: 'Cart(%{count})'
+    verify: 'Are you sure you want to delete?'
+    update_failed: 'Update failed'
+    delete_failed: 'Delete failed'
+    clear_cart: 'Clear cart'
   admin:
     title: 'ADMIN'
     dashboard:

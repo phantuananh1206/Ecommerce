@@ -1,0 +1,5 @@
+$('.cart').html('<%= j render 'carts/cart_text' %>');
+$('.destroy-product').bind('ajax:success', function() {
+  $(this).closest('tr').fadeOut();
+});
+$('.total_price').html('<%= t('cart.total') %> <span><strong><%= number_to_currency(@cart[:total]) %></strong></span>')

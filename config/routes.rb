@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|vi/ do
     root 'static_pages#home'
     get '/orders', to: 'orders#new'
+    get '/clear-cart', to: 'carts#clear_cart'
 
     namespace :admin do
       root 'base#home'
@@ -20,6 +21,6 @@ Rails.application.routes.draw do
     end
 
     resources :products, only: %i(show)
-    resources :carts, only: %i(index create)
+    resources :carts, only: %i(index create update destroy)
   end
 end

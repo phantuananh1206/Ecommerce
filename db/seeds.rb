@@ -89,7 +89,7 @@ end
 # Orders Details
 orders = Order.all
 orders.each do |order|
-  20.times do
+  2.times do
     OrderDetail.create!(
       order_id: order.id,
       product_id: Product.pluck(:id).sample,
