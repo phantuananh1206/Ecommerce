@@ -42,8 +42,8 @@ class CartsController < ApplicationController
 
   def quantity_valid
     params[:quantity].to_i <= @product.quantity &&
-    params[:quantity].to_i >= Settings.product.min_quantity &&
-    params[:quantity].to_i + @cart[:products][params[:product_id]].to_i <= @product.quantity
+      params[:quantity].to_i >= Settings.product.min_quantity &&
+        params[:quantity].to_i + @cart[:products][params[:product_id]].to_i <= @product.quantity
   end
 
   def check_quantity
@@ -54,8 +54,8 @@ class CartsController < ApplicationController
   end
 
   def add_infor_product(product, quantity)
-    { 'product_id': product.id, 'product_name': product.name, 'quantity': quantity,
-      'price': product.price, 'category_name': product.category_name,
-      'quantity_in_stock': product.quantity, 'subtotal': product.price * quantity }
+    { product_id: product.id, product_name: product.name, quantity: quantity,
+      price: product.price, category_name: product.category_name,
+      quantity_in_stock: product.quantity, subtotal: product.price * quantity }
   end
 end

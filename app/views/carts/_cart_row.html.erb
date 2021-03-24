@@ -13,9 +13,11 @@
   <td class="text-center">
     <div class="card custom-quantity">
       <div class="count-input">
-        <%= number_field_tag(:quantity, product[:quantity], min: Settings.product.min_quantity,
-                                                            max: product[:quantity_in_stock],
-                                                            class: 'form-control mb-5 input-lg') %>
+        <%= number_field_tag(:quantity,
+                             product[:quantity],
+                             min: Settings.product.min_quantity,
+                             max: product[:quantity_in_stock],
+                             class: 'form-control mb-5 input-lg') %>
       </div>
     </div>
   </td>
