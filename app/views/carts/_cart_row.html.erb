@@ -31,15 +31,15 @@
   <td class="text-center text-lg text-medium">
     <%= number_to_currency(product[:price]) %>
   </td>
-  <td class="text-center text-lg text-medium" id="sub_total">
+  <td class="text-center text-lg text-medium sub_total">
     <%= number_to_currency(product[:subtotal]) %>
   </td>
   <td class="text-center">
     <%= link_to cart_path(id: product[:product_id]),
-                        { data: { confirm: t('cart.verify') },
-                          class: 'btn btn-danger destroy-product',
-                          method: :delete,
-                          remote: true } do %>
+                data: { confirm: t('cart.verify') },
+                class: 'btn btn-danger destroy-product',
+                method: :delete,
+                remote: true do %>
       <i class='fa fa-trash'></i>
     <% end %>
   </td>

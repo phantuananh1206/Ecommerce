@@ -1,2 +1,2 @@
-$('#product_item_<%= params[:product_id] %>').parent().parent().find('#sub_total')[0].innerHTML = '<%= number_to_currency(@subtotal) %>'
+$('#product_item_<%= params[:product_id] %>').closest('tr').find('.sub_total').html('<%= number_to_currency(@subtotal) %>')
 $('.total_price').html('<%= t('cart.total') %> <span><strong><%= number_to_currency(@cart[:total]) %></strong></span>')
