@@ -43,7 +43,7 @@ class CartsController < ApplicationController
   def quantity_valid
     params[:quantity].to_i <= @product.quantity &&
       params[:quantity].to_i >= Settings.product.min_quantity &&
-        params[:quantity].to_i + @cart[:products][params[:product_id]].to_i <= @product.quantity
+      params[:quantity].to_i + @cart[:products][params[:product_id]].to_i <= @product.quantity
   end
 
   def check_quantity
