@@ -14,4 +14,7 @@ class Product < ApplicationRecord
   end
 
   scope :sort_name_alphabetically, -> { order(name: :asc) }
+  scope :by_ids, ->(ids) { where(id: ids) }
+
+  delegate :name, to: :category, prefix: true
 end

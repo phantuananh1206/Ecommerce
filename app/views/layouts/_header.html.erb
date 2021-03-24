@@ -27,10 +27,8 @@
             <li><%= link_to t('header.vietnamese'), locale: :vi %></li>
           </ul>
         </li>
-        <li>
-          <%= link_to '#' do %>
-            <span class="glyphicon glyphicon-shopping-cart"></span><%= t('header.cart') %>
-          <% end %>
+        <li class="cart">
+          <%= render 'carts/cart_text' %>
         </li>
         <% if user_signed_in? %>
           <li class="dropdown">

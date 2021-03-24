@@ -28,6 +28,7 @@ vi:
     add_to_cart: 'Thêm vào giỏ hàng'
     brand: 'Apple'
     product_not_found: 'Không tìm thấy sản phẩm'
+    invalid_quantity: 'Số lượng không hợp lệ'
   category:
     name: 'Laptop'
   rating:
@@ -66,9 +67,12 @@ vi:
     update_cart: 'Cập nhật giỏ hàng'
     checkout: 'Thanh toán'
     brand: 'Nhãn hiệu: '
-    stock: 'Trong kho: '
+    in_stock: 'Trong kho: %{num} sản phẩm'
     price: 'Giá'
     total: 'Tổng tiền: '
+    image: 'Hình ảnh'
+    cart_is_empty: 'Giỏ hàng trống'
+    cart: 'Giỏ hàng(%{count})'
   admin:
     title: 'ADMIN'
     dashboard:

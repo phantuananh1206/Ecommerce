@@ -1,0 +1,35 @@
+<tr>
+  <td>
+    <div class="product-item">
+      <div class="product-info">
+        <h4 class="product-title">
+          <%= product[:product_name] %>
+        </h4>
+        <span><em><%= product[:category_name] %></em></span>
+        <span><em><%= t('cart.in_stock', num: product[:quantity_in_stock]) %></em></span>
+      </div>
+    </div>
+  </td>
+  <td class="text-center">
+    <div class="card custom-quantity">
+      <div class="count-input">
+        <%= number_field_tag(:quantity,
+                             product[:quantity],
+                             min: Settings.product.min_quantity,
+                             max: product[:quantity_in_stock],
+                             class: 'form-control mb-5 input-lg') %>
+      </div>
+    </div>
+  </td>
+  <td class="text-center text-lg text-medium">
+    <%= number_to_currency(product[:price]) %>
+  </td>
+  <td class="text-center text-lg text-medium">
+    <%= number_to_currency(product[:subtotal]) %>
+  </td>
+  <td class="text-center">
+    <%= link_to carts_path, class: 'btn btn-danger' do %>
+      <i class='fa fa-trash'></i>
+    <% end %>
+  </td>
+</tr>
