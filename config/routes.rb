@@ -21,6 +21,6 @@ Rails.application.routes.draw do
     end
 
     resources :products, only: %i(show)
-    resources :carts, only: %i(index create update destroy)
+    resources :carts, except: %i(show edit new)
   end
 end
