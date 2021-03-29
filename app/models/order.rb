@@ -16,6 +16,20 @@ class Order < ApplicationRecord
 
   after_create :update_quantity_of_product, :update_usage_limit_voucher
 
+  def total_price
+    order_details.reduce(0) do |sum, od_detail|
+      if od_detail.valid?
+        sum + (od_detail.quantity * od_detail.price)
+      else
+        0
+      end
+    end
+  end
+
+  def confirm_order_expired?
+    created_at < Settings.mailer.expired.hours.ago
+  end
+
   private
 
   def update_quantity_of_product

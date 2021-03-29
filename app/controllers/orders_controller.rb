@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
   before_action :current_cart, :load_product_from_cart
   before_action :current_voucher, only: %i(apply_voucher cancel_voucher)
   before_action :load_voucher, only: %i(apply_voucher)
+  before_action :load_user, only: %i(create)
 
   def new; end
 
@@ -119,9 +120,17 @@ class OrdersController < ApplicationController
   end
 
   def save_success
+    OrderMailer.confirmation_order(@order, @user).deliver_now
     session.delete(:cart)
     session.delete(:voucher)
-    flash[:success] = t('order.order_success')
+    flash[:info] = t('order.confirm_order')
+    redirect_to root_path
+  end
+
+  def load_user
+    return if @user = User.find_by(email: current_user[:email])
+
+    flash[:danger] = t('order.user_not_found')
     redirect_to root_path
   end
 end
