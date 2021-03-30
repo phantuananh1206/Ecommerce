@@ -23,6 +23,9 @@ class CartsController < ApplicationController
   def update
     if @cart[:products].include?(params[:product_id])
       update_cart(@product)
+    else
+      flash[:danger] = t('cart.product_not_found_in_cart')
+      redirect_to carts_path
     end
   end
 
@@ -30,6 +33,9 @@ class CartsController < ApplicationController
     if @cart[:products].include?(params[:id])
       @cart[:products].delete(params[:id])
       load_products_in_cart
+    else
+      flash[:danger] = t('cart.product_not_found_in_cart')
+      redirect_to carts_path
     end
   end
 

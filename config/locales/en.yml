@@ -74,8 +74,7 @@ en:
     cart_is_empty: 'The cart is empty'
     cart: 'Cart(%{count})'
     confirm_delete: 'Are you sure you want to delete?'
-    update_failed: 'Update failed'
-    delete_failed: 'Delete failed'
+    product_not_found_in_cart: 'Product not found in cart'
     clear_cart: 'Clear cart'
     delete_success: 'Delete cart successfully'
   admin:

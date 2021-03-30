@@ -15,7 +15,7 @@
       <tbody id="ajax-cart-row">
         <%= render(partial: 'carts/cart_row',
                    collection: @products_in_cart,
-                   as: 'product') || t('cart.cart_is_empty') %>
+                   as: :product) || t('cart.cart_is_empty') %>
       </tbody>
     </table>
   </div>
