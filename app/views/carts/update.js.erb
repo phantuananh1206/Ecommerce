@@ -1,0 +1,5 @@
+$('.cart').html('<%= j render 'carts/cart_text' %>');
+$('.total_price > span > strong').html('<%= number_to_currency(@cart[:total]) %>');
+$('#ajax-cart-row').html('<%= j render(partial: 'carts/cart_row',
+                                       collection: @products_in_cart,
+                                       as: :product) || t('cart.cart_is_empty') %>');

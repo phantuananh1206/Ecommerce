@@ -8,19 +8,19 @@
           <th class="text-center"><%= t('cart.price') %></th>
           <th class="text-center"><%= t('cart.subtotal') %></th>
           <th class="text-center">
-            <%= link_to t('cart.clear_cart'), class: 'btn btn-sm btn-outline-danger' %>
+            <%= link_to t('cart.clear_cart'), clear_cart_path, class: 'btn btn-sm btn-outline-danger' %>
           </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="ajax-cart-row">
         <%= render(partial: 'carts/cart_row',
                    collection: @products_in_cart,
-                   as: 'product') || t('cart.cart_is_empty') %>
+                   as: :product) || t('cart.cart_is_empty') %>
       </tbody>
     </table>
   </div>
   <div class="shopping-cart-footer">
-    <div class="column text-lg"><%= t('cart.total') %>
+    <div class="column text-lg total_price"><%= t('cart.total') %>
       <span><strong><%= number_to_currency(@cart[:total]) %></strong></span>
     </div>
   </div>
@@ -31,7 +31,6 @@
       <% end %>
     </div>
     <div class="column">
-      <%= link_to t('cart.update_cart'), carts_path, class: 'btn btn-primary' %>
       <%= link_to t('cart.checkout'), orders_path, class: 'btn btn-success' %>
     </div>
   </div>

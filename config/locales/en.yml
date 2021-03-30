@@ -73,6 +73,10 @@ en:
     image: 'Image'
     cart_is_empty: 'The cart is empty'
     cart: 'Cart(%{count})'
+    confirm_delete: 'Are you sure you want to delete?'
+    product_not_found_in_cart: 'Product not found in cart'
+    clear_cart: 'Clear cart'
+    delete_success: 'Delete cart successfully'
   admin:
     title: 'ADMIN'
     dashboard:

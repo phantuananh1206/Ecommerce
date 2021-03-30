@@ -73,6 +73,10 @@ vi:
     image: 'Hình ảnh'
     cart_is_empty: 'Giỏ hàng trống'
     cart: 'Giỏ hàng(%{count})'
+    confirm_delete: 'Bạn có chắc chắn muốn xóa không?'
+    product_not_found_in_cart: 'Không tìm thấy sản phẩm trong giỏ hàng'
+    clear_cart: 'Xóa giỏ hàng'
+    delete_success: 'Xóa giỏ hàng thành công'
   admin:
     title: 'ADMIN'
     dashboard:
