@@ -36,7 +36,7 @@
   </td>
   <td class="text-center">
     <%= link_to cart_path(id: product[:product_id]),
-                data: { confirm: t('cart.verify') },
+                data: { confirm: t('cart.confirm_delete') },
                 class: 'btn btn-danger destroy-product',
                 method: :delete,
                 remote: true do %>

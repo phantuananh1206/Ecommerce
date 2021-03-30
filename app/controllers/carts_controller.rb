@@ -22,9 +22,7 @@ class CartsController < ApplicationController
 
   def update
     if @cart[:products].include?(params[:product_id])
-      update_cart(@product) if @product
-    else
-      flash[:danger] = t('cart.update_failed')
+      update_cart(@product)
     end
   end
 
@@ -32,8 +30,6 @@ class CartsController < ApplicationController
     if @cart[:products].include?(params[:id])
       @cart[:products].delete(params[:id])
       load_products_in_cart
-    else
-      flash[:danger] = t('cart.delete_failed')
     end
   end
 
@@ -79,7 +75,6 @@ class CartsController < ApplicationController
   def update_cart(product)
     if update_valid_quantity
       @cart[:products][params[:product_id]] = params[:quantity].to_i
-      @subtotal = product.price * params[:quantity].to_i
       load_products_in_cart
     else
       flash[:danger] = t('product.invalid_quantity')
