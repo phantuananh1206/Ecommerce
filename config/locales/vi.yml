@@ -47,17 +47,25 @@ vi:
     total_price_products: 'Tổng tiền của sản phẩm'
     information: 'Thông tin người nhận hàng'
     checkout: 'Hoàn thành thanh toán'
+    total_od: 'Tổng tiền đơn đặt hàng'
     infor_ship:
       name: 'Tên'
       email: 'Email'
       address: 'Địa chỉ'
       phone_number: 'Số điện thoại'
       delivery_time: 'Ngày giao hàng'
+    create_failed: 'Tạo đơn đặt hàng thất bại'
+    voucher_not_valid: 'Voucher không hơp lệ'
+    order_success: 'Đặt hàng thành công'
+    product_not_found: 'Không tìm thấy sản phẩm'
+    delete_voucher_failed: 'Xóa voucher thất bại'
   voucher:
     title: 'Khuyến mãi'
     apply_voucher: 'Áp dụng khuyến mãi'
     cancel_voucher: 'Hủy khuyến mãi'
     discount: 'Giảm giá'
+    confirm_apply: 'Áp dụng voucher này?'
+    confirm_cancel: 'Hủy voucher này?'
   cart:
     name: 'Tên'
     quantity: 'Số lượng'
@@ -77,6 +85,7 @@ vi:
     product_not_found_in_cart: 'Không tìm thấy sản phẩm trong giỏ hàng'
     clear_cart: 'Xóa giỏ hàng'
     delete_success: 'Xóa giỏ hàng thành công'
+    product_name: 'Tên sản phẩm'
   admin:
     title: 'ADMIN'
     dashboard:
@@ -118,6 +127,7 @@ vi:
     forgot_password: 'Quên mật khẩu'
     edit_profile: 'Chỉnh sửa hồ sơ'
     product: 'Sản phẩm'
+    checkout: 'Thanh toán '
   views:
     pagination:
       first: '« ĐẦU TIÊN'

@@ -4,7 +4,8 @@ User.create!(
   address: '58 Dung Si Thanh Khe',
   password: 'Test123@',
   phone_number: '0987654321',
-  role: 0
+  role: 0,
+  confirmed_at: Time.zone.now
 )
 
 #User
@@ -14,7 +15,8 @@ User.create!(
     email: Faker::Internet.free_email,
     address: Faker::Address.full_address,
     password: 'Test123@',
-    phone_number: Faker::Number.leading_zero_number(digits: 10)
+    phone_number: Faker::Number.leading_zero_number(digits: 10),
+    confirmed_at: Time.zone.now
   )
 end
 
@@ -51,7 +53,7 @@ end
 
 # Products
 subcategories = Category.subcategories
-20.times do
+56.times do
   Product.create!(
     category_id: subcategories.pluck(:id).sample,
     brand_id: Brand.pluck(:id).sample,

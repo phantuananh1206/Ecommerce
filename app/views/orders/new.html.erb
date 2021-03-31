@@ -1,3 +1,4 @@
+<% provide(:title, t('title.checkout')) %>
 <div class="form-checkout">
   <h2 class="form-checkout text-center"><%= t('order.order_title') %></h2>
   <div class="row-info">
@@ -11,70 +12,56 @@
         <table id="orders" class="table table-hover">
           <thead class="font-size" >
             <tr>
-              <th><%= t('carts.product_name') %></th>
-              <th class="text-center"><%= t('carts.quantity') %></th>
-              <th class="text-center"><%= t('carts.price') %></th>
-              <th class="text-center"><%= t('carts.subtotal') %></th>
+              <th><%= t('cart.product_name') %></th>
+              <th class="text-center"><%= t('cart.quantity') %></th>
+              <th class="text-center"><%= t('cart.price') %></th>
+              <th class="text-center"><%= t('cart.subtotal') %></th>
             </tr>
           </thead>
           <tbody>
-            <h3 class="text-center" style="color: red">
-              <tr class="font-size" >
-                <div class="media">
-                  <td class="col-md-3">
-                    <div class="media-body">
-                      <p class="">
-                        <%= link_to t('product.name') %>
-                      </p>
-                    </div>
-                  </td>
-                </div>
-                <td class="col-md-3 text-center">
-                  <strong><%= t('product.quantity') %></strong>
-                </td>
-                <td class="col-md-3 text-center">
-                  <strong><%= t('product.price') %></strong>
-                </td>
-                <td class="col-md-3 text-center">
-                  <strong><%= t('product.subtotal') %></strong>
-                </td>
-              </tr>
-            </h3>
+            <%= render partial: 'order_row', collection: @order_details, as: :od_details %>
           </tbody>
         </table>
         <hr>
         <div class="voucher"><%= t('voucher.title') %>
-          <%= text_field :name, class: 'form-control' %>
-          <%= button_tag(type: 'submit', data: {confirm: t('voucher.apply_vou')},
-          class: 'btn btn-primary btn-sm') do %>
-            <%= t('voucher.apply_voucher') %>
+          <%= form_tag(orders_new_path, method: :post, remote: true) do %>
+            <%= text_field(:voucher, @code) %>
+            <%= button_tag(type: 'submit',
+                           data: {confirm: t('voucher.confirm_apply')},
+                           class: 'btn btn-primary btn-sm') do %>
+              <%= t('voucher.apply_voucher') %>
+            <% end %>
           <% end %>
         </div>
-          <%= button_tag(type: 'submit', data: {confirm: t('voucher.cancel_vou')},
-          class: 'btn btn-primary btn-sm cancel_voucher') do %>
-            <%= t('voucher.cancel_voucher') %>
+          <%= form_tag(orders_new_path, method: :delete, remote: true) do %>
+            <%= button_tag(type: 'submit',
+                           data: {confirm: t('voucher.confirm_cancel')},
+                           class: 'btn btn-primary btn-sm cancel_voucher') do %>
+              <%= t('voucher.cancel_voucher') %>
+            <% end %>
           <% end %>
         <hr>
         <div><%= t('order.total_price_products') %>
           <span class="price" style="color:black">
-            <%= t('product.price') %>
+            <%= number_to_currency(@cart[:total]) %>
           </span>
         </div>
         <br>
-        <div><%= t('voucher.discount') %>
+        <div class="apply_voucher">
+          <%= t('voucher.discount') %>
           <span class="price" style="color:black">
-            <%= t('product.price') %>
+            <%= number_to_currency(current_voucher[:discount]) %>
           </span>
         </div>
         <hr>
         <div class= "total">
           <h5 id="total_price">
             <div>
-              <h5><%= t('orders.total_od') %>
-              <span class="price" style="color:black">
-                <%= t('product.price') %>
+              <h3><%= t('order.total_od') %>
+              <span class="price total_price_order" style="color:black">
+                <%= number_to_currency(total_price_order) %>
               </span>
-              </h5>
+              </h3>
             </div>
           </h5>
         </div>

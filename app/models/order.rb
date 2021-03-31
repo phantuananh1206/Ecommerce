@@ -13,4 +13,21 @@ class Order < ApplicationRecord
     validates :address
     validates :delivery_time
   end
+
+  after_create :update_quantity_product, :update_usage_limit_voucher
+
+  private
+
+  def update_quantity_product
+    order_details.map do |od|
+      product = od.product
+      product.update(quantity: (od.product_quantity - od.quantity))
+    end
+  end
+
+  def update_usage_limit_voucher
+    if voucher
+      voucher.update(usage_limit: voucher.usage_limit - 1)
+    end
+  end
 end
