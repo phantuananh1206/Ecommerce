@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|vi/ do
     root 'static_pages#home'
     get '/clear-cart', to: 'carts#clear_cart'
-    post '/orders/new', to: 'orders#apply_voucher'
-    delete '/orders/new', to: 'orders#cancel_voucher'
+    post '/orders/voucher', to: 'orders#apply_voucher'
+    delete '/orders/voucher', to: 'orders#cancel_voucher'
 
     namespace :admin do
       root 'base#home'

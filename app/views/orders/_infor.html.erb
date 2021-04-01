@@ -13,7 +13,7 @@
       <%= f.telephone_field :phone_number, class: 'form-control', value: current_user.phone_number %>
       <br>
       <div class="time-delivey">
-        <%= f.label :delivery_time, t('order.infor_ship.delivery_time'), class:'delivery' %>
+        <%= f.label :delivery_time, t('order.infor_ship.delivery_time'), class: 'delivery' %>
         <%= f.date_field(:delivery_time, { min: Date.today, value: Date.today }) %>
       </div>
       <br>

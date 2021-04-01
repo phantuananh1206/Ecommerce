@@ -12,4 +12,8 @@ class OrderDetail < ApplicationRecord
   def subtotal
     price * quantity
   end
+
+  def update_quantity_product
+    product.update(quantity: (product.quantity - quantity))
+  end
 end

@@ -13,16 +13,13 @@ class ApplicationController < ActionController::Base
   end
 
   def store_location
-    if(request.path != '/orders' &&
-      !request.xhr? && !current_user)
+    if(request.path != '/orders' && !request.xhr? && !current_user)
       session[:previous_url] = request.fullpath
     end
   end
 
   def after_sign_in_path_for(resource)
-    previous_path = session[:previous_url]
-    session[:previous_url] = nil
-    previous_path || root_path
+    session.delete(:previous_url) || root_path
   end
 
   private

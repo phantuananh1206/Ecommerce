@@ -24,21 +24,17 @@
         </table>
         <hr>
         <div class="voucher"><%= t('voucher.title') %>
-          <%= form_tag(orders_new_path, method: :post, remote: true) do %>
+          <%= form_tag(orders_voucher_path, method: :post, remote: true) do %>
             <%= text_field(:voucher, @code) %>
-            <%= button_tag(type: 'submit',
-                           data: {confirm: t('voucher.confirm_apply')},
-                           class: 'btn btn-primary btn-sm') do %>
-              <%= t('voucher.apply_voucher') %>
-            <% end %>
+            <%= button_tag(t('voucher.apply_voucher'), type: 'submit',
+                                                       data: { confirm: t('voucher.confirm_apply') },
+                                                       class: 'btn btn-primary btn-sm') %>
           <% end %>
         </div>
-          <%= form_tag(orders_new_path, method: :delete, remote: true) do %>
-            <%= button_tag(type: 'submit',
-                           data: {confirm: t('voucher.confirm_cancel')},
-                           class: 'btn btn-primary btn-sm cancel_voucher') do %>
-              <%= t('voucher.cancel_voucher') %>
-            <% end %>
+          <%= form_tag(orders_voucher_path, method: :delete, remote: true) do %>
+            <%= button_tag(t('voucher.cancel_voucher'), type: 'submit',
+                                                        data: { confirm: t('voucher.confirm_cancel') },
+                                                        class: 'btn btn-primary btn-sm cancel_voucher') %>
           <% end %>
         <hr>
         <div><%= t('order.total_price_products') %>
