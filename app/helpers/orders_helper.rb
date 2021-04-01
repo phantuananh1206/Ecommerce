@@ -3,7 +3,7 @@ module OrdersHelper
     session[:voucher] ||= {}
   end
 
-  def total_price_order
+  def total_after_discount
     total = @cart[:total]
     if session[:voucher]
       total -= session[:voucher][:discount].to_f

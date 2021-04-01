@@ -59,6 +59,7 @@ vi:
     order_success: 'Đặt hàng thành công'
     product_not_found: 'Không tìm thấy sản phẩm'
     delete_voucher_failed: 'Xóa voucher thất bại'
+    voucher_not_found: 'Không tìm thấy voucher'
   voucher:
     title: 'Khuyến mãi'
     apply_voucher: 'Áp dụng khuyến mãi'

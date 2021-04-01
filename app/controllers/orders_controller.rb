@@ -3,32 +3,23 @@ class OrdersController < ApplicationController
   include OrdersHelper
 
   before_action :store_location, :authenticate_user!
-  before_action :current_cart, :load_product_from_cart, only: %i(new create apply_voucher cancel_voucher)
+  before_action :current_cart, :load_product_from_cart
   before_action :current_voucher, only: %i(apply_voucher cancel_voucher)
-  before_action :load_voucher, only: %i(apply_voucher create)
+  before_action :load_voucher, only: %i(apply_voucher)
 
   def new; end
 
   def create
-    @order = current_user.orders.new(order_params.merge(total: total_price_order,
-                                                        voucher_id: current_voucher[:id]))
+    @order = current_user.orders.new(order_params)
     ActiveRecord::Base.transaction do
-      unless current_voucher.blank?
-        voucher_id = current_voucher[:id]
-        voucher = Voucher.find_by(id: voucher_id)
-        if voucher && valid_voucher(@cart[:total], voucher)
-          save_ordered_products
-          @order.save!
-          save_success
-        else
-          session.delete(:voucher)
-          flash[:danger] = t('order.voucher_not_valid')
-          redirect_to new_order_path
-        end
-      else
+      if current_voucher.blank? || valid_voucher?
         save_ordered_products
         @order.save!
         save_success
+      else
+        session.delete(:voucher)
+        flash[:danger] = t('order.voucher_not_valid')
+        redirect_to new_order_path
       end
     end
   rescue
@@ -37,7 +28,7 @@ class OrdersController < ApplicationController
   end
 
   def apply_voucher
-    if @voucher && valid_voucher(@cart[:total], @voucher)
+    if @voucher.order_valid_voucher(@cart[:total])
       session[:voucher] = @voucher
     else
       session.delete(:voucher)
@@ -81,19 +72,25 @@ class OrdersController < ApplicationController
     end
   end
 
-  def valid_voucher(total, voucher)
-    total > voucher.discount &&
-      voucher.expiry_date > Time.zone.now &&
-      voucher.usage_limit >= 1
+  def valid_voucher?
+    return false unless current_voucher
+
+    voucher = Voucher.find_by(id: current_voucher[:id])
+    return true if voucher.order_valid_voucher(@cart[:total])
   end
 
   def load_voucher
     @code = params[:voucher]
-    @voucher = Voucher.find_by(code: @code)
+    return if @voucher = Voucher.find_by(code: @code)
+
+    session.delete(:voucher)
+    flash[:danger] = t('order.voucher_not_found')
+    redirect_to new_order_path
   end
 
   def order_params
     params.require(:order).permit(:name, :phone_number, :address, :delivery_time)
+                          .merge(total: total_after_discount, voucher_id: current_voucher[:id])
   end
 
   def save_ordered_products

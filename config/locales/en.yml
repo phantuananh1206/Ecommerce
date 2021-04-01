@@ -59,6 +59,7 @@ en:
     order_success: 'Order success'
     product_not_found: 'Product not found'
     delete_voucher_failed: 'Delete voucher failed'
+    voucher_not_found: 'Voucher not found'
   voucher:
     title: 'Voucher'
     apply_voucher: 'Apply voucher'
