@@ -44,20 +44,29 @@ en:
   order:
     submit: 'Submit'
     order_title: 'YOUR ORDER INFORMATION'
-    total_price_products: 'Total products'
+    total_price_products: 'Total price products'
     information: 'Receiver order information'
     checkout: 'Finish to checkout'
+    total_od: 'Total price order'
     infor_ship:
       name: 'Name'
       email: 'Email'
       address: 'Address'
       phone_number: 'Phone number'
       delivery_time: 'Delivery time'
+    create_failed: 'Failed order creation'
+    voucher_not_valid: 'Voucher not valid'
+    order_success: 'Order success'
+    product_not_found: 'Product not found'
+    delete_voucher_failed: 'Delete voucher failed'
+    voucher_not_found: 'Voucher not found'
   voucher:
     title: 'Voucher'
     apply_voucher: 'Apply voucher'
     cancel_voucher: 'Cancel vouher'
     discount: 'Discount'
+    confirm_apply: 'Apply this voucher?'
+    confirm_cancel: 'Cancel this voucher?'
   cart:
     name: 'Name'
     quantity: 'Quantity'
@@ -77,6 +86,7 @@ en:
     product_not_found_in_cart: 'Product not found in cart'
     clear_cart: 'Clear cart'
     delete_success: 'Delete cart successfully'
+    product_name: 'Product Name'
   admin:
     title: 'ADMIN'
     dashboard:
@@ -118,6 +128,7 @@ en:
     forgot_password: 'Forgot password'
     edit_profile: 'Edit profile'
     product: 'Product'
+    checkout: 'Checkout'
   views:
       pagination:
         first: '« FIRST'

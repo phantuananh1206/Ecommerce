@@ -12,6 +12,16 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
   end
 
+  def store_location
+    if(request.path != '/orders' && !request.xhr? && !current_user)
+      session[:previous_url] = request.fullpath
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    session.delete(:previous_url) || root_path
+  end
+
   private
 
   def set_locale

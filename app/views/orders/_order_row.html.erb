@@ -1,0 +1,18 @@
+<tr class="font-size" >
+  <div class="media">
+    <td class="col-md-3 text-center">
+      <div class="media-body">
+        <%= link_to od_details[:product_name], product_path(od_details[:product_id]) %>
+      </div>
+    </td>
+  </div>
+  <td class="col-md-3 text-center">
+    <%= od_details[:quantity] %>
+  </td>
+  <td class="col-md-3 text-center">
+    <%= od_details[:price] %>
+  </td>
+  <td class="col-md-3 text-center">
+    <strong><%= od_details[:subtotal] %></strong>
+  </td>
+</tr>
