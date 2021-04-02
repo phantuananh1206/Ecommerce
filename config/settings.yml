@@ -1,6 +1,6 @@
 mailer:
   email: 'phantuananhltt@gmail.com'
-  expired: 2
+  confirm_order_expired: 2
 validation:
   name_max: 50
   email_max: 255

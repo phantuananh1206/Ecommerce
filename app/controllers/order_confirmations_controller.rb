@@ -1,9 +1,9 @@
 class OrderConfirmationsController < ApplicationController
-  before_action :load_order, :check_expiration
+  before_action :authenticate_user!, :load_order, :check_expiration
 
   def edit
     if @order.waiting?
-      @order.confirmed!
+      @order.confirm!
       flash[:success] = t('order.confirm_successful')
     else
       flash[:danger] = t('order.confirm_failed')

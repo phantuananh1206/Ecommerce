@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  include AASM
+
   belongs_to :user
   belongs_to :voucher, optional: true
   has_many :order_details, dependent: :destroy
@@ -16,18 +18,48 @@ class Order < ApplicationRecord
 
   after_create :update_quantity_of_product, :update_usage_limit_voucher
 
+  aasm column: :status, enum: true do
+    state :waiting, initial: true
+    state :confirmed, :accepted, :refused,
+          :canceled, :shipping, :delivered
+
+    event :confirm do
+      transitions from: :waiting, to: :confirmed
+    end
+
+    event :accept do
+      transitions from: :confirmed, to: :accepted
+    end
+
+    event :refuse do
+      transitions from: :confirmed, to: :refused
+    end
+
+    event :cancel do
+      transitions from: :waiting, to: :canceled
+    end
+
+    event :ship do
+      transitions from: :accepted, to: :shipping
+    end
+
+    event :delivered do
+      transitions from: :shipping, to: :delivered
+    end
+  end
+
   def total_price
     order_details.reduce(0) do |sum, od_detail|
       if od_detail.valid?
         sum + (od_detail.quantity * od_detail.price)
       else
-        0
+        sum
       end
     end
   end
 
   def confirm_order_expired?
-    created_at < Settings.mailer.expired.hours.ago
+    created_at < Settings.mailer.confirm_order_expired.hours.ago
   end
 
   private

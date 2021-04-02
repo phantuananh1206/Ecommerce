@@ -21,6 +21,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.1.1)
+      concurrent-ruby (~> 1.0)
     actioncable (6.0.3.5)
       actionpack (= 6.0.3.5)
       nio4r (~> 2.0)
@@ -352,6 +354,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  aasm
   active_storage_validations (= 0.8.2)
   activerecord-session_store
   bootsnap (>= 1.4.2)
@@ -380,7 +383,7 @@ DEPENDENCIES
   rails-i18n
   sass-rails (>= 6)
   selenium-webdriver
-  spring
+  spring (~> 2.0, >= 2.0.2)
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
