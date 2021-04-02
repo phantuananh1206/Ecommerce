@@ -11,16 +11,16 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.new(order_params)
-    ActiveRecord::Base.transaction do
-      if current_voucher.blank? || valid_voucher?
+    if current_voucher.blank? || valid_voucher?
+      ActiveRecord::Base.transaction do
         save_ordered_products
         @order.save!
-        save_success
-      else
-        session.delete(:voucher)
-        flash[:danger] = t('order.voucher_not_valid')
-        redirect_to new_order_path
       end
+      save_success
+    else
+      session.delete(:voucher)
+      flash[:danger] = t('order.voucher_not_valid')
+      redirect_to new_order_path
     end
   rescue
     flash[:danger] = t('order.create_failed')
@@ -73,10 +73,9 @@ class OrdersController < ApplicationController
   end
 
   def valid_voucher?
-    return false unless current_voucher
+    return unless current_voucher
 
-    voucher = Voucher.find_by(id: current_voucher[:id])
-    return true if voucher.order_valid_voucher(@cart[:total])
+    Voucher.find_by(id: current_voucher[:id])&.order_valid_voucher(@cart[:total])
   end
 
   def load_voucher
