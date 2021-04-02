@@ -19,7 +19,7 @@ class Order < ApplicationRecord
   private
 
   def update_quantity_of_product
-    order_details.map do |order_detail|
+    order_details.each do |order_detail|
       order_detail.update_quantity_product
     end
   end
