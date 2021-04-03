@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get '/clear-cart', to: 'carts#clear_cart'
     post '/orders/voucher', to: 'orders#apply_voucher'
     delete '/orders/voucher', to: 'orders#cancel_voucher'
+    get '/search', to: 'searchs#index'
 
     namespace :admin do
       root 'base#home'
@@ -25,5 +26,6 @@ Rails.application.routes.draw do
     resources :carts, except: %i(show edit new)
     resources :orders, only: %i(new create)
     resources :order_confirmations, only: %i(edit)
+    resources :categories, only: %i(show)
   end
 end

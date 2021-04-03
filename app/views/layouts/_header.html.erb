@@ -3,6 +3,14 @@
     <%= link_to t('logo'), root_path, id: 'logo' %>
     <div class="collapse navbar-collapse navHeaderCollapse">
       <ul class="nav navbar-nav navbar-right">
+        <li class="form-inline">
+          <%= search_form_for @q, url: search_path do |f| %>
+            <%= f.search_field :name_cont, class: 'form-control search' %>
+            <%= button_tag(type: 'submit', class: 'btn btn-dark button btn-search') do %>
+              <i class='fa fa-search'></i>
+            <% end %>
+          <% end %>
+        </li>
         <li class="active">
           <%= link_to root_path do %>
             <span class='glyphicon glyphicon-home'></span><%= t('header.home') %>
@@ -13,8 +21,9 @@
             <%= t('header.category') %><b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to t('header.laptop'), '#' %></li>
-            <li><%= link_to t('header.phone'), '#' %></li>
+            <% @categories.each do |category| %>
+              <li><%= link_to category.name, category %></li>
+            <% end %>
           </ul>
         </li>
         <li><%= link_to t('header.contact'), '#' %></li>

@@ -30,6 +30,7 @@ gem 'dotenv-rails'
 gem 'bootstrap-kaminari-views'
 gem 'kaminari'
 gem 'aasm'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

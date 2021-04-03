@@ -31,6 +31,7 @@ vi:
     invalid_quantity: 'Số lượng không hợp lệ'
   category:
     name: 'Laptop'
+    category_not_found: 'Không tìm thấy danh mục'
   rating:
     point: 'Điểm'
     index: 'Xem tất cả đánh giá'
@@ -171,3 +172,5 @@ vi:
     order_status: 'Trạng thái đơn đặt hàng: %{status}'
     confirm_order: 'Xác nhận đơn đặt hàng'
     thank_you: 'Cảm ơn'
+  search:
+    sort_by_price: 'Sắp xếp theo giá'
