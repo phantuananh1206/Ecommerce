@@ -2,7 +2,7 @@ class OrderConfirmationsController < ApplicationController
   before_action :authenticate_user!, :load_order, :check_expiration
 
   def edit
-    if @order.waiting?
+    if @order.may_confirm?
       @order.confirm!
       flash[:success] = t('order.confirm_successful')
     else
@@ -14,7 +14,7 @@ class OrderConfirmationsController < ApplicationController
   private
 
   def load_order
-    return if @order = Order.find_by(id: params[:id])
+    return if @order = Order.find_by(id: params[:id], user_id: current_user[:id])
 
     flash[:danger] = t('order.order_not_found')
     redirect_to root_path
