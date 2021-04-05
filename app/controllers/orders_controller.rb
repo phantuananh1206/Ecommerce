@@ -119,9 +119,10 @@ class OrdersController < ApplicationController
   end
 
   def save_success
+    OrderMailer.confirmation_order(@order, current_user).deliver_now
     session.delete(:cart)
     session.delete(:voucher)
-    flash[:success] = t('order.order_success')
+    flash[:info] = t('order.confirm_order')
     redirect_to root_path
   end
 end

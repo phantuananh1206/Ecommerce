@@ -24,5 +24,6 @@ Rails.application.routes.draw do
     resources :products, only: %i(show)
     resources :carts, except: %i(show edit new)
     resources :orders, only: %i(new create)
+    resources :order_confirmations, only: %i(edit)
   end
 end
