@@ -35,8 +35,4 @@ class ApplicationController < ActionController::Base
   def load_categories
     @categories = Category.sort_name_categories_alphabetically.select(:id, :name)
   end
-
-  def set_search
-    @q = Product.ransack(params[:q])
-  end
 end
