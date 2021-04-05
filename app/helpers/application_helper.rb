@@ -11,4 +11,8 @@ module ApplicationHelper
   def load_image_product(product)
     image_tag(product.images.attached? ? product.images : 'macbook_pro.jpg')
   end
+
+  def ransack_product
+    Product.ransack(params[:q])
+  end
 end

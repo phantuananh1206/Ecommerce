@@ -4,7 +4,7 @@
     <div class="collapse navbar-collapse navHeaderCollapse">
       <ul class="nav navbar-nav navbar-right">
         <li class="form-inline">
-          <%= search_form_for @q, url: search_path do |f| %>
+          <%= search_form_for @q || ransack_product, url: search_path do |f| %>
             <%= f.search_field :name_cont, class: 'form-control search' %>
             <%= button_tag(type: 'submit', class: 'btn btn-dark button btn-search') do %>
               <i class='fa fa-search'></i>

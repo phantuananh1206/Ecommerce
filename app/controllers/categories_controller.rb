@@ -3,8 +3,8 @@ class CategoriesController < ApplicationController
 
   def show
     @products = @category.products.sort_name_alphabetically
-                                  .page(params[:page])
-                                  .per(Settings.quantity_per_page)
+                         .page(params[:page])
+                         .per(Settings.quantity_per_page)
   end
 
   def load_category

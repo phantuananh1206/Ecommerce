@@ -2,7 +2,7 @@
   <div class="row">
     <% if @products.size != 0 %>
       <h4 class="text-right">
-        <%= sort_link(@q, :price, t('search.sort_by_price')) %>
+        <%= sort_link(ransack_product, :price, t('search.sort_by_price')) %>
       </h4>
     <% end %>
     <div class="row" id="products">

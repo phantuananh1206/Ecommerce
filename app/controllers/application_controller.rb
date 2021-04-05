@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :set_locale, :load_categories, :set_search
+  before_action :set_locale, :load_categories
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
