@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :set_locale
+  before_action :set_locale, :load_categories
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -30,5 +30,9 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     {locale: I18n.locale}
+  end
+
+  def load_categories
+    @categories = Category.sort_name_categories_alphabetically.select(:id, :name)
   end
 end

@@ -31,6 +31,7 @@ en:
     invalid_quantity: 'Invalid quantity'
   category:
     name: 'Laptop'
+    category_not_found: 'Category not found'
   rating:
     point: 'Point'
     index: 'See all ratings'
@@ -171,3 +172,5 @@ en:
     order_status: 'Order status: %{status}'
     confirm_order: 'Confirm order'
     thank_you: 'Thank you'
+  search:
+    sort_by_price: 'Sort by price'

@@ -1,0 +1,10 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="row" id="products">
+      <%= render(@products) || t('product.product_not_found') %>
+    </div>
+    <div class="row" id="paginator">
+      <%= paginate @products, theme: 'twitter-bootstrap-3', remote: true %>
+    </div>
+  </div>
+</div>
