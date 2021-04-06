@@ -1,0 +1,27 @@
+<div class="p-4">
+  <h3><%= t('admin.order.order_tracking') %></h3>
+  <table class="table table-bordered track_tbl">
+    <thead>
+      <tr>
+        <th><%= t('admin.order.order_id') %></th>
+        <th><%= t('admin.order.orderer') %></th>
+        <th><%= t('admin.order.receiver_name') %></th>
+        <th><%= t('admin.order.receiver_address') %></th>
+        <th><%= t('admin.order.receiver_phone') %></th>
+        <th><%= t('admin.order.delivery_date') %></th>
+        <th><%= t('admin.order.order_status') %></th>
+        <th><%= t('admin.order.total') %></th>
+        <th><%= t('admin.order.discount') %></th>
+        <th><%= t('admin.order.total_after_discount') %></th>
+        <th><%= t('admin.order.detail') %></th>
+        <th><%= t('admin.order.action') %></th>
+      </tr>
+    </thead>
+    <tbody id="orders">
+      <%= render @orders %>
+    </tbody>
+  </table>
+  <div id="paginator">
+    <%= paginate @orders, theme: 'twitter-bootstrap-3', remote: true %>
+  </div>
+</div>

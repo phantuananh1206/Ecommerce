@@ -92,6 +92,9 @@ h1.page-header {
 
 .sidebar-nav li a:hover {
   text-decoration: none;
+  color: red;
+  background-color: aquamarine;
+  font-weight: bold;
 }
 
 .sidebar-nav li a:active,
@@ -110,8 +113,9 @@ h1.page-header {
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-  color: #fff;
+  color: red;
   background: none;
+  font-weight: bold;
 }
 
 @media(min-width:768px) {

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       root 'base#home'
+      resources :orders, only: %i(index update)
     end
 
     devise_for :users, skip: :omniauth_callbacks
@@ -24,8 +25,9 @@ Rails.application.routes.draw do
 
     resources :products, only: %i(show)
     resources :carts, except: %i(show edit new)
-    resources :orders, only: %i(new create)
+    resources :orders, only: %i(new create show)
     resources :order_confirmations, only: %i(edit)
     resources :categories, only: %i(show)
+    resources :order_details, only: %i(index)
   end
 end

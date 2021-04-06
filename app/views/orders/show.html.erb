@@ -1,0 +1,41 @@
+<div class="container bootdey">
+  <div class="panel panel-default panel-order">
+    <div class="panel-heading">
+      <strong><%= t('order.order') %></strong>
+      <div class="btn-group pull-right"></div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-1">
+          <%= image_tag 'avatar.png' %>
+        </div>
+        <div class="col-md-11">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="pull">
+                <label class="label label-danger"><%= @order.status %></label>
+              </div>
+              <span><strong><%= t('order.id', id: @order.id) %></strong></span><br/>
+              <%= t('order.phone', phone_number: @order.phone_number) %><br/>
+              <%= t('order.address', address: @order.address) %><br/>
+              <%= t('order.delivery_time', delivery_time: @order.delivery_time) %><br/>
+              <%= t('order.total', total: number_to_currency(@order.total_price)) %><br/>
+              <%= t('order.discount') %>
+              <% if @order.voucher %>
+                <%= number_to_currency(@order.voucher.discount) %>
+              <% else %>
+                <%= number_to_currency(0) %>
+              <% end %>
+              <br/>
+              <%= t('order.total_after_discount', total_after_discount: number_to_currency(@order.total)) %><br/>
+              <%= link_to t('order.view_detail'), order_details_path(order_id: @order.id), class: 'btn btn-info btn-md' %>
+            </div>
+            <div class="col-md-12">
+              <%= t('order.order_time', created_at: @order.created_at) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

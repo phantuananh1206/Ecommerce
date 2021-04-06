@@ -16,7 +16,10 @@ class Order < ApplicationRecord
     validates :delivery_time
   end
 
+  extend ActiveModel::Callbacks
+  define_model_callbacks :refuse, only: :after
   after_create :update_quantity_of_product, :update_usage_limit_voucher
+  after_refuse :update_quantity_of_product_when_order_refused
 
   aasm column: :status, enum: true do
     state :waiting, initial: true
@@ -48,6 +51,8 @@ class Order < ApplicationRecord
     end
   end
 
+  scope :sort_order_by_created_at, -> { order(created_at: :desc) }
+
   def total_price
     order_details.reduce(0) do |sum, od_detail|
       if od_detail.valid?
@@ -62,6 +67,12 @@ class Order < ApplicationRecord
     created_at < Settings.mailer.confirm_order_expired.hours.ago
   end
 
+  def refuse
+    run_callbacks :refuse do
+      refuse!
+    end
+  end
+
   private
 
   def update_quantity_of_product
@@ -74,5 +85,11 @@ class Order < ApplicationRecord
     return unless voucher
 
     voucher.update(usage_limit: voucher.usage_limit - 1)
+  end
+
+  def update_quantity_of_product_when_order_refused
+    order_details.each do |order_detail|
+      order_detail.update_quantity_product_increase
+    end
   end
 end

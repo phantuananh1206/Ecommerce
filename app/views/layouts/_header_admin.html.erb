@@ -1,11 +1,11 @@
 <div class="navbar navbar-default navbar-static-top">
   <div class="container">
-    <%= link_to t('admin.name'), '#', id: 'logo_admin' %>
+    <%= link_to t('admin.title'), admin_root_path, id: 'logo_admin' %>
     <div class="collapse navbar-collapse navHeaderCollapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
           <%= link_to root_path do %>
-            <span class='glyphicon glyphicon-home'></span><%= t('home.name') %>
+            <span class='glyphicon glyphicon-home'></span><%= t('header.home') %>
           <% end %>
         </li>
         <li class="dropdown">

@@ -8,6 +8,7 @@ class OrderDetail < ApplicationRecord
   end
 
   delegate :quantity, to: :product, prefix: true
+  delegate :name, to: :product, prefix: true
 
   def subtotal
     price * quantity
@@ -15,5 +16,9 @@ class OrderDetail < ApplicationRecord
 
   def update_quantity_product
     product.update(quantity: (product.quantity - quantity))
+  end
+
+  def update_quantity_product_increase
+    product.update(quantity: (product.quantity + quantity))
   end
 end
