@@ -25,12 +25,11 @@ class Admin::OrdersController < Admin::BaseController
   end
 
   def update_status_order
-    begin
-      @order.send("#{params[:status]}!")
-      flash[:success] = t('admin.order.update_status_success')
-    rescue
-      flash[:danger] = t('admin.order.update_status_order_failed')
-    end
+    @order.send("#{params[:status]}!")
+    flash[:success] = t('admin.order.update_status_success')
+  rescue StandardError
+    flash[:danger] = t('admin.order.update_status_order_failed')
+  ensure
     redirect_to admin_orders_path
   end
 end
