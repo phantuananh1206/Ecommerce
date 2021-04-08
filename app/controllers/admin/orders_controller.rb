@@ -1,10 +1,14 @@
 class Admin::OrdersController < Admin::BaseController
-  before_action :load_order, only: :update
+  before_action :load_order, only: %i(show update)
 
   def index
     @orders = Order._created_at_desc
                    .page(params[:page])
                    .per(Settings.quantity_per_page)
+  end
+
+  def show
+    @order_details = @order.order_details
   end
 
   def update
@@ -21,15 +25,11 @@ class Admin::OrdersController < Admin::BaseController
   end
 
   def update_status_order
-    if Order.aasm.events.map(&:name).include?("#{params[:status]}".to_sym)
-      if @order.send("may_#{params[:status]}?")
-        @order.send("#{params[:status]}!")
-        flash[:success] = t('admin.order.update_status_success')
-      else
-        flash[:danger] = t('admin.order.update_status_order_failed')
-      end
-    else
-      flash[:danger] = t('admin.order.status_not_found')
+    begin
+      @order.send("#{params[:status]}!")
+      flash[:success] = t('admin.order.update_status_success')
+    rescue
+      flash[:danger] = t('admin.order.update_status_order_failed')
     end
     redirect_to admin_orders_path
   end
