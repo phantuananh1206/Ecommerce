@@ -28,6 +28,5 @@ Rails.application.routes.draw do
     resources :orders, only: %i(new create show)
     resources :order_confirmations, only: %i(edit)
     resources :categories, only: %i(show)
-    resources :order_details, only: %i(index)
   end
 end

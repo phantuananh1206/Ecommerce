@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
   before_action :current_cart, :load_product_from_cart, except: %i(show)
   before_action :current_voucher, only: %i(apply_voucher cancel_voucher)
   before_action :load_voucher, only: %i(apply_voucher)
+  before_action :load_order, only: :show
 
   def new; end
 
@@ -28,10 +29,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    return if @order = Order.find_by(id: params[:id])
-
-    flash[:danger] = t('order.order_not_found')
-    redirect_to root_path
+    @order_details = @order.order_details
   end
 
   def apply_voucher
@@ -130,6 +128,13 @@ class OrdersController < ApplicationController
     session.delete(:cart)
     session.delete(:voucher)
     flash[:info] = t('order.confirm_order')
+    redirect_to root_path
+  end
+
+  def load_order
+    return if @order = Order.find_by(id: params[:id])
+
+    flash[:danger] = t('order.order_not_found')
     redirect_to root_path
   end
 end

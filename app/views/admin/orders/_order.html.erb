@@ -8,24 +8,14 @@
   <td><%= order.status %></td>
   <td><%= order.total_price %></td>
   <td>
-    <% if order.voucher %>
-      <%= number_to_currency(order.voucher.discount) %>
-    <% else %>
-      <%= number_to_currency(0) %>
-    <% end %>
+    <%= number_to_currency(order.voucher&.discount.to_i) %>
   </td>
   <td><%= number_to_currency(order.total) %></td>
   <td>
     <%= link_to t('admin.order.view_detail'), order_path(id: order.id), class: 'btn btn-info btn-md' %>
   </td>
   <td>
-    <% if order.may_accept? || order.may_refuse? %>
-      <%= link_to t('admin.order.accept'), admin_order_path(id: order.id, status: Order.statuses[:accepted]), method: :patch, remote: true, class: 'btn btn-success btn-md' %>
-      <%= link_to t('admin.order.refuse'), admin_order_path(id: order.id, status: Order.statuses[:refused]), method: :patch, remote: true, class: 'btn btn-danger btn-md' %>
-    <% elsif order.may_ship? %>
-      <%= link_to t('admin.order.shipping'), admin_order_path(id: order.id, status: Order.statuses[:shipping]), method: :patch, class: 'btn btn-info' %>
-    <% elsif order.may_delivered? %>
-      <%= link_to t('admin.order.delivered'), admin_order_path(id: order.id, status: Order.statuses[:delivered]), method: :patch, class: 'btn btn-info' %>
-    <% end %>
+    <%= load_link_to_status_order(order) %>
+    <%= load_link_to_refuse_order(order) %>
   </td>
 </tr>

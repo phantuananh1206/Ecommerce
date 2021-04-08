@@ -1,8 +1,8 @@
 class Admin::OrdersController < Admin::BaseController
-  before_action :load_order, only: %i(update)
+  before_action :load_order, only: :update
 
   def index
-    @orders = Order.sort_order_by_created_at
+    @orders = Order._created_at_desc
                    .page(params[:page])
                    .per(Settings.quantity_per_page)
   end
@@ -22,15 +22,8 @@ class Admin::OrdersController < Admin::BaseController
   end
 
   def update_status_order
-    case params[:status].to_i
-    when Order.statuses[:accepted]
-      @order.accept!
-    when Order.statuses[:refused]
-      @order.refuse
-    when Order.statuses[:shipping]
-      @order.ship!
-    when Order.statuses[:delivered]
-      @order.delivered!
+    if @order.send("may_#{params[:status]}?")
+      @order.send("#{params[:status]}!")
     else
       flash[:danger] = t('order.update_status_order_failed')
     end
