@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   before_action :store_location, :authenticate_user!
   before_action :current_cart, :load_product_from_cart
   before_action :current_voucher, only: %i(apply_voucher cancel_voucher)
-  before_action :load_voucher, only: %i(apply_voucher)
+  before_action :load_voucher, only: :apply_voucher
 
   def new; end
 

@@ -7,7 +7,7 @@ class OrderDetail < ApplicationRecord
     validates :price, numericality: { greater_than: Settings.validation.number.zero }
   end
 
-  delegate :quantity, to: :product, prefix: true
+  delegate :quantity, :name, to: :product, prefix: true
 
   def subtotal
     price * quantity
@@ -15,5 +15,9 @@ class OrderDetail < ApplicationRecord
 
   def update_quantity_product
     product.update(quantity: (product.quantity - quantity))
+  end
+
+  def restock_product
+    product.update(quantity: (product.quantity + quantity))
   end
 end

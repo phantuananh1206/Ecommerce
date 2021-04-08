@@ -15,4 +15,13 @@ module ApplicationHelper
   def ransack_product
     Product.ransack(params[:q])
   end
+
+  def link_to_next_order_state(order)
+    event_name = order.aasm.events(reject: :refuse).map(&:name).first
+    return if event_name.blank?
+
+    text = t(event_name, scope: 'admin.order.status')
+    options = { method: :patch, remote: :true, class: 'btn btn-success btn-md' }
+    link_to(text, admin_order_path(id: order.id, status: event_name), options)
+  end
 end

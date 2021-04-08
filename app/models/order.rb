@@ -32,7 +32,7 @@ class Order < ApplicationRecord
     end
 
     event :refuse do
-      transitions from: :confirmed, to: :refused
+      transitions from: :confirmed, to: :refused, after: :restock_quantity_of_product
     end
 
     event :cancel do
@@ -47,6 +47,8 @@ class Order < ApplicationRecord
       transitions from: :shipping, to: :delivered
     end
   end
+
+  scope :_created_at_desc, -> { order(created_at: :desc) }
 
   def total_price
     order_details.reduce(0) do |sum, od_detail|
@@ -74,5 +76,11 @@ class Order < ApplicationRecord
     return unless voucher
 
     voucher.update(usage_limit: voucher.usage_limit - 1)
+  end
+
+  def restock_quantity_of_product
+    order_details.each do |order_detail|
+      order_detail.restock_product
+    end
   end
 end

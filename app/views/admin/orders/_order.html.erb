@@ -1,0 +1,27 @@
+<tr class="active">
+  <td><%= order.id %></td>
+  <td><%= order.user.name %></td>
+  <td><%= order.name %></td>
+  <td><%= order.address %></td>
+  <td><%= order.phone_number %></td>
+  <td><%= order.delivery_time %></td>
+  <td><%= order.status %></td>
+  <td><%= order.total_price %></td>
+  <td>
+    <%= number_to_currency(order.voucher&.discount.to_i) %>
+  </td>
+  <td><%= number_to_currency(order.total) %></td>
+  <td>
+    <%= link_to t('admin.order.view_detail'), admin_order_path(id: order.id),
+                                              class: 'btn btn-info btn-md' %>
+  </td>
+  <td>
+    <%= link_to_next_order_state(order) %>
+    <% if order.may_refuse? %>
+      <%= link_to t('admin.order.status.refuse'), admin_order_path(id: order.id, status: :refuse),
+                                                  method: :patch,
+                                                  remote: true,
+                                                  class: 'btn btn-danger btn-md' %>
+    <% end %>
+  </td>
+</tr>
