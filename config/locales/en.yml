@@ -165,7 +165,7 @@ en:
       delete: 'Delete'
       confirm_delete: 'Are you sure you want to delete?'
       list_products: 'List products'
-      total_products: 'Total products'
+      total_products: 'Total products: %{total_products} products '
       new_product: 'New product'
       id: 'ID'
       name: 'Name'

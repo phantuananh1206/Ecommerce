@@ -165,7 +165,7 @@ vi:
       delete: 'Xóa'
       confirm_delete: 'Bạn có chắc chắn muốn xóa không?'
       list_products: 'Danh sách sản phẩm'
-      total_products: 'Tổng số sản phẩm'
+      total_products: 'Tổng số sản phẩm: %{total_products} products'
       new_product: 'Thêm sản phâm'
       id: 'ID'
       name: 'Tên'
