@@ -77,7 +77,6 @@ vi:
     price: 'Giá'
     subtotal: 'Tổng tiền'
     discount: 'Giảm giá'
-    update_status_order_failed: 'Cập nhật trạng thái đơn đặt hàng thất bại'
     id: 'Id: %{id}'
     phone: 'Số điện thoại: %{phone_number}'
     address: 'Địa chỉ: %{address}'
@@ -144,6 +143,15 @@ vi:
       shipping: 'Vận chuyển'
       delivered: 'Đã giao hàng'
       view_detail: 'Xem chi tiết'
+      order_not_found: 'Không tìm thấy đơn đặt hàng'
+      update_status_order_failed: 'Cập nhật trạng thái dơn hàng thất bại'
+      update_status_success: 'Cập nhật trạng thái dơn hàng thành công'
+      status_not_found: 'Không tìm thấy trạng thái'
+      status:
+        accept: 'Chấp nhận'
+        refuse: 'Từ chối'
+        ship: 'Đang chuyển hàng'
+        delivered: 'Đã giao'
   user:
     log_in: 'Đăng nhập'
     sign_up: 'Đăng ký'

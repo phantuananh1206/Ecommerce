@@ -12,10 +12,16 @@
   </td>
   <td><%= number_to_currency(order.total) %></td>
   <td>
-    <%= link_to t('admin.order.view_detail'), order_path(id: order.id), class: 'btn btn-info btn-md' %>
+    <%= link_to t('admin.order.view_detail'), order_path(id: order.id, user_id: order.user.id),
+                                              class: 'btn btn-info btn-md' %>
   </td>
   <td>
-    <%= load_link_to_status_order(order) %>
-    <%= load_link_to_refuse_order(order) %>
+    <%= link_to_next_order_state(order) %>
+    <% if order.may_refuse? %>
+      <%= link_to t('admin.order.status.refuse'), admin_order_path(id: order.id, status: :refuse),
+                                                  method: :patch,
+                                                  remote: true,
+                                                  class: 'btn btn-danger btn-md' %>
+    <% end %>
   </td>
 </tr>

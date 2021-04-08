@@ -3,9 +3,9 @@ class OrdersController < ApplicationController
   include OrdersHelper
 
   before_action :store_location, :authenticate_user!
-  before_action :current_cart, :load_product_from_cart, except: %i(show)
+  before_action :current_cart, :load_product_from_cart, except: :show
   before_action :current_voucher, only: %i(apply_voucher cancel_voucher)
-  before_action :load_voucher, only: %i(apply_voucher)
+  before_action :load_voucher, only: :apply_voucher
   before_action :load_order, only: :show
 
   def new; end
@@ -132,7 +132,7 @@ class OrdersController < ApplicationController
   end
 
   def load_order
-    return if @order = Order.find_by(id: params[:id])
+    return if @order = Order.find_by(id: params[:id], user_id: params[:user_id])
 
     flash[:danger] = t('order.order_not_found')
     redirect_to root_path

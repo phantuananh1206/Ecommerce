@@ -77,7 +77,6 @@ en:
     price: 'Price'
     subtotal: 'Subtotal'
     discount: 'Discount'
-    update_status_order_failed: 'Update status order failed'
     id: 'Id: %{id}'
     phone: 'Phone number: %{phone_number}'
     address: 'Address: %{address}'
@@ -144,6 +143,15 @@ en:
       shipping: 'Shipping'
       delivered: 'Delivered'
       view_detail: 'View detail'
+      order_not_found: 'Order not found'
+      update_status_order_failed: 'Update status order failed'
+      update_status_success: 'Update status order success'
+      status_not_found: 'Status not found'
+      status:
+        accept: 'Accept'
+        refuse: 'Refuse'
+        ship: 'Shipping'
+        delivered: 'Delivered'
   user:
     log_in: 'Log in'
     sign_up: 'Sign up'

@@ -9,7 +9,6 @@ class Admin::OrdersController < Admin::BaseController
 
   def update
     update_status_order
-    redirect_to admin_orders_path
   end
 
   private
@@ -17,15 +16,21 @@ class Admin::OrdersController < Admin::BaseController
   def load_order
     return if @order = Order.find_by(id: params[:id])
 
-    flash[:danger] = t('order.order_not_found')
+    flash[:danger] = t('admin.order.order_not_found')
     redirect_to root_path
   end
 
   def update_status_order
-    if @order.send("may_#{params[:status]}?")
-      @order.send("#{params[:status]}!")
+    if Order.aasm.events.map(&:name).include?("#{params[:status]}".to_sym)
+      if @order.send("may_#{params[:status]}?")
+        @order.send("#{params[:status]}!")
+        flash[:success] = t('admin.order.update_status_success')
+      else
+        flash[:danger] = t('admin.order.update_status_order_failed')
+      end
     else
-      flash[:danger] = t('order.update_status_order_failed')
+      flash[:danger] = t('admin.order.status_not_found')
     end
+    redirect_to admin_orders_path
   end
 end
