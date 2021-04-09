@@ -194,8 +194,9 @@ en:
       new_category: 'New category'
       id: 'ID'
       name: 'Name'
-      parent_id: 'Parent id'
+      parent_name: 'Parent name'
       action: 'Action'
+      parent_id_not_found: 'Parent id not found'
   user:
     log_in: 'Log in'
     sign_up: 'Sign up'

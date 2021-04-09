@@ -32,4 +32,8 @@ module ApplicationHelper
   def get_all_brands
     Brand.all
   end
+
+  def get_parent_categories_valid(category_id)
+    Category.parent_categories_valid(category_id)
+  end
 end

@@ -1,6 +1,5 @@
 class Admin::CategoriesController < Admin::BaseController
   before_action :load_category, except: %i(index new create)
-  before_action :check_parent_id, only: :update
 
   def index
     @categories = Category.page(params[:page]).per(Settings.quantity_per_page)
@@ -53,12 +52,5 @@ class Admin::CategoriesController < Admin::BaseController
 
     flash[:danger] = t('admin.category.category_not_found')
     redirect_to admin_categories_path
-  end
-
-  def check_parent_id
-    return unless category_params[:parent_id].to_i == @category.id
-
-    flash.now[:danger] = t('admin.category.parent_id_not_valid')
-    render :edit
   end
 end

@@ -194,8 +194,9 @@ vi:
       new_category: 'Thêm danh mục'
       id: 'ID'
       name: 'Tên'
-      parent_id: 'Danh mục cha'
+      parent_name: 'Tên danh mục cha'
       action: 'Hành động'
+      parent_id_not_found: 'Id danh mục cha không tìm thấy'
   user:
     log_in: 'Đăng nhập'
     sign_up: 'Đăng ký'
