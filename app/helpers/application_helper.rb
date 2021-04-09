@@ -24,4 +24,12 @@ module ApplicationHelper
     options = { method: :patch, remote: :true, class: 'btn btn-success btn-md' }
     link_to(text, admin_order_path(id: order.id, status: event_name), options)
   end
+
+  def get_all_categories
+    Category.all
+  end
+
+  def get_all_brands
+    Brand.all
+  end
 end

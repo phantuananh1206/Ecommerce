@@ -2,8 +2,8 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :brand
   has_many_attached :images
-  has_many :order_details, dependent: :destroy
-  has_many :ratings, dependent: :destroy
+  has_many :order_details, dependent: :restrict_with_error
+  has_many :ratings, dependent: :restrict_with_error
   has_many :orders, through: :order_details
 
   with_options presence: true do

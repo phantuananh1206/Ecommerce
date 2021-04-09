@@ -188,3 +188,18 @@ btn-menu {
   font-size: 14px;
   float: left;
 }
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
