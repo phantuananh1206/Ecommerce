@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       root 'base#home'
       resources :orders, only: %i(index show update)
       resources :products, except: :show
+      resources :categories, except: :show
     end
 
     devise_for :users, skip: :omniauth_callbacks

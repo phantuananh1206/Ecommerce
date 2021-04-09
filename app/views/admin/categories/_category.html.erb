@@ -1,0 +1,13 @@
+<tr class="active">
+  <td><%= category.id %></td>
+  <td><%= category.name %></td>
+  <td><%= category.parent_id %></td>
+  <td>
+    <%= link_to t('admin.category.edit'), edit_admin_category_path(category),
+                                          class: 'btn btn-success btn-md glyphicon glyphicon-edit' %>
+    <%= link_to t('admin.category.delete'), admin_category_path(category),
+                                            data: { confirm: t('admin.category.confirm_delete') },
+                                            method: :delete,
+                                            class: 'btn btn-danger btn-md glyphicon glyphicon-trash' %>
+  </td>
+</tr>
