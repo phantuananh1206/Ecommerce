@@ -156,6 +156,7 @@ vi:
       create_product: 'Tạo sản phẩm'
       update_product: 'Cập nhật sản phẩm'
       create_success: 'Tạo sản phẩm thành công'
+      create_failed: 'Tạo sản phẩm thất bại'
       update_success: 'Cập nhật sản phẩm thành công'
       update_failed: 'Cập nhật sản phẩm thất bại'
       delete_success: 'Xóa sản phẩm thành công'

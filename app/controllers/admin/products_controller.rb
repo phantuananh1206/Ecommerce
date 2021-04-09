@@ -15,6 +15,7 @@ class Admin::ProductsController < Admin::BaseController
       flash[:success] = t('admin.product.create_success')
       redirect_to admin_products_path
     else
+      flash.now[:danger] = t('admin.product.create_failed')
       render :new
     end
   end

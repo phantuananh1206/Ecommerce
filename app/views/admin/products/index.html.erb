@@ -1,6 +1,6 @@
 <div class="p-4">
   <h1><%= t('admin.product.list_products') %></h1>
-  <h3><%= t('admin.product.total_products', total_products: get_total_products) %></h3>
+  <h3><%= t('admin.product.total_products', total_products: @products.total_count) %></h3>
   <%= link_to t('admin.product.new_product'), new_admin_product_path, class: 'glyphicon glyphicon-plus' %>
   <table class="table table-striped">
     <thead>

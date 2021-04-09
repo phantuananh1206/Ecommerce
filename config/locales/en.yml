@@ -156,6 +156,7 @@ en:
       create_product: 'Create product'
       update_product: 'Update product'
       create_success: 'Create product success'
+      create_failed: 'Create product failed'
       update_success: 'Update product success'
       update_failed: 'Update product failed'
       delete_success: 'Delete product success'

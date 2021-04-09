@@ -32,8 +32,4 @@ module ApplicationHelper
   def get_all_brands
     Brand.all
   end
-
-  def get_total_products
-    Product.all.size
-  end
 end
