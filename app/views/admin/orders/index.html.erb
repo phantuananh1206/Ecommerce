@@ -1,4 +1,5 @@
 <div class="p-4">
+  <%= link_to t('admin.order.export_list_orders_to_excel'), admin_export_orders_path(format: :xls) %>
   <h3><%= t('admin.order.order_tracking') %></h3>
   <table class="table table-bordered track_tbl">
     <thead>

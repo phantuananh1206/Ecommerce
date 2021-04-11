@@ -64,6 +64,15 @@ class Order < ApplicationRecord
     created_at < Settings.mailer.confirm_order_expired.hours.ago
   end
 
+  def self.to_xls
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |order|
+        csv << order.attributes.values_at(*column_names)
+      end
+    end
+  end
+
   private
 
   def update_quantity_of_product

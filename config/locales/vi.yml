@@ -152,6 +152,7 @@ vi:
         refuse: 'Từ chối'
         ship: 'Đang chuyển hàng'
         delivered: 'Đã giao'
+      export_list_orders_to_excel: 'Xuất danh sách đơn đặt hàng sang excel'
     product:
       create_product: 'Tạo sản phẩm'
       update_product: 'Cập nhật sản phẩm'

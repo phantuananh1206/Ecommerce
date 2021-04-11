@@ -152,6 +152,7 @@ en:
         refuse: 'Refuse'
         ship: 'Shipping'
         delivered: 'Delivered'
+      export_list_orders_to_excel: 'Export list orders to excel'
     product:
       create_product: 'Create product'
       update_product: 'Update product'

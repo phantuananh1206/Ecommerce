@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :orders, only: %i(index show update)
       resources :products, except: :show
       resources :categories, except: :show
+      resources :export_orders, only: :index
     end
 
     devise_for :users, skip: :omniauth_callbacks
