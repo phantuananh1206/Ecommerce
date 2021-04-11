@@ -27,7 +27,9 @@ Rails.application.routes.draw do
       delete '/logout', to: 'devise/sessions#destroy'
     end
 
-    resources :products, only: %i(show)
+    resources :products, only: :show do
+      resources :ratings, only: %i(index create)
+    end
     resources :carts, except: %i(show edit new)
     resources :orders, only: %i(new create)
     resources :order_confirmations, only: %i(edit)

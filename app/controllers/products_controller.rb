@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
   before_action :load_product, only: %i(show)
 
-  def show; end
+  def show
+    @rating = Rating.new
+  end
 
   private
 

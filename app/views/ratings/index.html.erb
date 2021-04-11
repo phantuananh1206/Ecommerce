@@ -1,0 +1,39 @@
+<section class="section mt-6">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+        <div class="card mb-6">
+          <h3 class="dark-color"> <%= link_to @product.name, @product %></h3>
+          <div class="col-lg-6">
+            <div class="about-avatar">
+              <%= load_image_product(@product) %>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="content average-score">
+              <div class="star-rating mb-2">
+                <div class="star-rating-front" style="width: <%= @product.point_percentage %>%; height: 23px;"><%= t('product.star') %></div>
+                <div class="star-rating-back"><%= t('product.star') %></div>
+              </div>
+              <div class="average-score-display ml-3 pt-2">
+                <%= t('rating.point', point: @product.avg_point) %> <%= t('rating.reviews', num: @product.ratings.count) %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <table class="table is-fullwidth has-text-centered">
+        <thead>
+            <tr>
+              <th><%= t('rating.user_name') %></th>
+              <th><%= t('rating.list_point') %></th>
+              <th><%= t("rating.comment") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @ratings %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

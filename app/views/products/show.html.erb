@@ -13,9 +13,9 @@
         <h1 class="product-title"><%= @product.name %></h1>
         <div class="rating">
           <div class="star-rating mb-2">
-            <div class="star-rating-front"><%= t('product.star') %></div>
+            <div class="star-rating-front" style="width: <%= @product.point_percentage %>%"><%= t('product.star') %></div>
             <div class="star-rating-back"><%= t('product.star') %></div>
-            <small>(<%= t('rating.point') %>)</small>
+            <small><%= t('rating.reviews', num: @product.ratings.count) %></small>
           </div>
         </div>
         <h5 class="product-description"><%= @product.description %></h5>
@@ -42,24 +42,7 @@
               <i class='fa fa-shopping-cart'> <%= t('product.add_to_cart') %></i>
             <% end %>
           <% end %>
-          <div class="rating-box mt-3">
-            <div class="main-rating">
-              <div class="ratings mb-3">
-                <span class="fa fa-star-o" id="star"></span>
-                <span class="fa fa-star-o" id="star"></span>
-                <span class="fa fa-star-o" id="star"></span>
-                <span class="fa fa-star-o" id="star"></span>
-                <span class="fa fa-star-o" id="star"></span>
-              </div>
-              <div class="ml-3 rating-value-display">
-                <span id="rating-value-display"><%= t('rating.min') %></span>
-                <%= t('rating.sign') %><%= t('rating.max') %>
-              </div>
-            </div>
-            <%= text_field :content, class: 'content' %>
-            <%= button_tag t('order.submit'), class: 'btn btn-success btn-md glyphicon glyphicon-ok' %>
-            <%= button_tag t('rating.index'), class: 'btn btn-info btn-md glyphicon' %>
-          </div>
+          <%= render 'ratings/form', rating: @rating, product: @product %>
         </div>
       </div>
     </div>

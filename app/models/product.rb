@@ -17,4 +17,20 @@ class Product < ApplicationRecord
   scope :by_ids, ->(ids) { where(id: ids) }
 
   delegate :name, to: :category, prefix: true
+
+  def avg_point
+    if ratings.present?
+      ratings.average(:point).round(1).to_f
+    else
+      0.0
+    end
+  end
+
+  def point_percentage
+    if ratings.present?
+      ratings.average(:point).round(1).to_f * 90 / 5
+    else
+      0.0
+    end
+  end
 end
