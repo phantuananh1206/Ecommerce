@@ -1,0 +1,23 @@
+<div class="p-4">
+  <h1><%= t('admin.store.list_stores') %></h1>
+  <h3><%= t('admin.store.total_stores', total_stores: @stores.total_count) %></h3>
+  <%= link_to t('admin.store.new_store'), new_admin_store_path, class: 'glyphicon glyphicon-plus' %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t('admin.store.id') %></th>
+        <th><%= t('admin.store.name') %></th>
+        <th><%= t('admin.store.address') %></th>
+        <th><%= t('admin.store.latitude') %></th>
+        <th><%= t('admin.store.longitude') %></th>
+        <th><%= t('admin.store.action') %></th>
+      </tr>
+    </thead>
+    <tbody id="stores">
+      <%= render @stores %>
+    </tbody>
+  </table>
+  <div id="paginator">
+    <%= paginate @stores, theme: 'twitter-bootstrap-3', remote: true %>
+  </div>
+</div>

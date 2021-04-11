@@ -5,4 +5,7 @@ class Store < ApplicationRecord
     validates :name, length: { maximum: Settings.validation.name_max }
     validates :address
   end
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end

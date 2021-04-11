@@ -31,6 +31,7 @@ gem 'bootstrap-kaminari-views'
 gem 'kaminari'
 gem 'aasm'
 gem 'ransack'
+gem 'geocoder'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
