@@ -21,7 +21,7 @@ class Category < ApplicationRecord
   end
 
   def parent_id_valid
-    return if Category.find_by(id: parent_id)
+    return if Category.exists?(id: parent_id)
 
     errors.add(:parent_id, I18n.t('admin.category.parent_id_not_found'))
   end
