@@ -1,5 +1,7 @@
 class Admin::CategoriesController < Admin::BaseController
   before_action :load_category, except: %i(index new create)
+  before_action :get_list_categories, only: %i(new create)
+  before_action :get_list_parent_categories, only: %i(edit update)
 
   def index
     @categories = Category.page(params[:page]).per(Settings.quantity_per_page)
@@ -52,5 +54,13 @@ class Admin::CategoriesController < Admin::BaseController
 
     flash[:danger] = t('admin.category.category_not_found')
     redirect_to admin_categories_path
+  end
+
+  def get_list_categories
+    @list_categories = Category.all
+  end
+
+  def get_list_parent_categories
+    @list_parent_categories = Category.parent_categories_valid(params[:id])
   end
 end
