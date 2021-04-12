@@ -12,7 +12,7 @@ class Category < ApplicationRecord
   scope :subcategories, -> { where.not(parent_id: nil) }
   scope :sort_name_categories_alphabetically, -> { order(name: :asc) }
   scope :parent_categories_valid, ->(id) { where.not(id: id).where.not(parent_id: id) }
-  scope :child_category, ->(id) { where(parent_id: id)}
+  scope :child_category, ->(id) { where(parent_id: id) }
 
   def update_child_categories
     Category.child_category(id).update_all(parent_id: nil)
