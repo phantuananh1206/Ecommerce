@@ -85,7 +85,6 @@ en:
     id: 'Id: %{id}'
     phone: 'Phone number: %{phone_number}'
     address: 'Address: %{address}'
-    delivery_time: 'Delivery time: %{delivery_time}'
     total: 'Total: %{total}'
     discount: 'Discount: '
     total_after_discount: 'Total after discount: %{total_after_discount}'

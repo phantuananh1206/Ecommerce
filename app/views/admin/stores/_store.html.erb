@@ -6,10 +6,10 @@
   <td><%= store.longitude %></td>
   <td>
     <%= link_to t('admin.store.edit'), edit_admin_store_path(store),
-                                         class: 'btn btn-success btn-md glyphicon glyphicon-edit' %>
+                                       class: 'btn btn-success btn-md glyphicon glyphicon-edit' %>
     <%= link_to t('admin.store.delete'), admin_store_path(store),
-                                           data: { confirm: t('admin.store.confirm_delete') },
-                                           method: :delete,
-                                           class: 'btn btn-danger btn-md glyphicon glyphicon-trash' %>
+                                         data: { confirm: t('admin.store.confirm_delete') },
+                                         method: :delete,
+                                         class: 'btn btn-danger btn-md glyphicon glyphicon-trash' %>
   </td>
 </tr>

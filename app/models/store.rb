@@ -1,5 +1,5 @@
 class Store < ApplicationRecord
-  has_many :products, dependent: :destroy
+  has_many :products
 
   with_options presence: true do
     validates :name, length: { maximum: Settings.validation.name_max }
